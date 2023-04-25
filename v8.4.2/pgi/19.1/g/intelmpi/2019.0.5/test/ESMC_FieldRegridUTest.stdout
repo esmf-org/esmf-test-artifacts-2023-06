@@ -1,0 +1,29 @@
+2023-04-25 20:42:01
+Beginning Test, file ESMC_FieldRegridUTest.C, line 68
+Beginning Test, file ESMC_FieldRegridUTest.C, line 68NUMBER_OF_PROCESSORS 1
+PASS MeshCreate, ESMC_FieldRegridUTest.C, line 125
+PASS MeshAddNodes, ESMC_FieldRegridUTest.C, line 133
+PASS MeshAddElements, ESMC_FieldRegridUTest.C, line 142
+PASS MeshGetNodeCount, ESMC_FieldRegridUTest.C, line 152
+PASS MeshGetElementCount, ESMC_FieldRegridUTest.C, line 163
+PASS MeshCreate, ESMC_FieldRegridUTest.C, line 231
+PASS MeshAddNodes, ESMC_FieldRegridUTest.C, line 239
+PASS MeshAddElements, ESMC_FieldRegridUTest.C, line 248
+PASS MeshGetNodeCount, ESMC_FieldRegridUTest.C, line 258
+PASS MeshGetElementCount, ESMC_FieldRegridUTest.C, line 269
+[h11c54:100745:0:100745] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+==== backtrace (tid: 100745) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x00000000010eddd4 ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/pgi_19.1_intelmpi_g_v8.4.2/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000131bab1 ESMCI::MeshCap::meshcreatenodedistgrid()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/pgi_19.1_intelmpi_g_v8.4.2/esmf/src/Infrastructure/Mesh/src/ESMCI_MeshCap.C:1754
+ 3 0x0000000001401187 c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/pgi_19.1_intelmpi_g_v8.4.2/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:247
+ 4 0x0000000001ea4d9b esmf_meshmod_esmf_meshcreatefromintptr_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/pgi_19.1_intelmpi_g_v8.4.2/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3158
+ 5 0x0000000001ca5635 f_esmf_fieldcreatemeshtk_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/pgi_19.1_intelmpi_g_v8.4.2/esmf/src/Infrastructure/Field/interface/ESMF_Field_C.F90:319
+ 6 0x0000000000f3aa8b ESMCI::Field::create()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/pgi_19.1_intelmpi_g_v8.4.2/esmf/src/Infrastructure/Field/interface/ESMCI_Field.C:759
+ 7 0x00000000016ab2f9 ESMC_FieldCreateMeshTypeKind()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/pgi_19.1_intelmpi_g_v8.4.2/esmf/src/Infrastructure/Field/interface/ESMC_Field.C:145
+ 8 0x00000000004027cf main()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/pgi_19.1_intelmpi_g_v8.4.2/esmf/src/Infrastructure/Field/tests/ESMC_FieldRegridUTest.C:282
+ 9 0x0000000000022555 __libc_start_main()  ???:0
+10 0x0000000000401729 _start()  ???:0
+=================================
+srun: error: h11c54: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=44194032.117
