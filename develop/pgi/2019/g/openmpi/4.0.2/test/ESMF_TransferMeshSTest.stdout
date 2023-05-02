@@ -1,0 +1,154 @@
+2023-05-02 03:02:07
+ --------------------------------------- 
+ Start of  System Test ESMF_TransferMeshSTest
+ --------------------------------------- 
+ Created component user model 1rc =            0
+ Created component user model 2rc =            0
+ Created component user one-way coupler, rc =            0
+ Comp Creates finished
+ Comp1 SetVM finished, rc=             0
+ User Comp1 Register starting
+ Registered Initialize, Run, and Finalize routines
+ User Comp1 Register returning
+ Comp1 SetServices finished, rc=             0
+ Comp2 SetVM finished, rc=             0
+ Comp2 SetServices finished, rc=             0
+ Cpl SetVM finished, rc=             0
+ User Coupler Register starting
+ Registered Initialize, Run, and Finalize routines
+ User Coupler Register returning
+ Cpl SetServices finished, rc=             0
+ User Comp1 Init phase=1 starting
+ --------------------------------------- 
+ Start of  System Test ESMF_TransferMeshSTest
+ --------------------------------------- 
+ Created component user model 1rc =            0
+ Created component user model 2rc =            0
+ Created component user one-way coupler, rc =            0
+ Comp Creates finished
+ Comp1 SetVM finished, rc=             0
+ User Comp1 Register starting
+ Registered Initialize, Run, and Finalize routines
+ User Comp1 Register returning
+ Comp1 SetServices finished, rc=             0
+ Comp2 SetVM finished, rc=             0
+ Comp2 SetServices finished, rc=             0
+ Cpl SetVM finished, rc=             0
+ User Coupler Register starting
+ Registered Initialize, Run, and Finalize routines
+ User Coupler Register returning
+ Cpl SetServices finished, rc=             0
+ User Comp1 Init phase=1 starting
+[Orion-01-54:292288:0:292288] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+[Orion-01-54:292290:0:292290] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+
+/work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C: [ ESMCI::LogErr::MsgFoundError() ]
+      ...
+      583 {
+      584     bool result=false;
+      585 #ifdef ESMC_SUCCESSDEFAULT_ON
+==>   586     if (rcToReturn != ESMC_NULL_POINTER) *rcToReturn=ESMF_SUCCESS;
+      587 #endif
+      588     if (trace) {
+      589         Write(ESMC_METHOD,ESMC_LOGMSG_TRACE,
+
+/work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C: [ ESMCI::LogErr::MsgFoundError() ]
+      ...
+
+      583 {
+      584     bool result=false;
+      585 #ifdef ESMC_SUCCESSDEFAULT_ON
+==>   586     if (rcToReturn != ESMC_NULL_POINTER) *rcToReturn=ESMF_SUCCESS;
+      587 #endif
+      588     if (trace) {
+      589         Write(ESMC_METHOD,ESMC_LOGMSG_TRACE,
+
+==== backtrace (tid: 292288) ====
+ 0 0x000000000121aac4 ESMCI::LogErr::MsgFoundError()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 1 0x00000000013ff1b1 ESMCI::MeshCap::meshcreatenodedistgrid()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Mesh/src/ESMCI_MeshCap.C:1754
+ 2 0x0000000001444d47 c_esmc_meshcreatenodedistgrid_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:247
+ 3 0x00000000021129cd esmf_meshmod_esmf_meshcreate1part_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:1407
+ 4 0x000000000040b801 user_model1_user_initp1_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/system_tests/ESMF_TransferMesh/user_model1.F90:262
+ 5 0x00000000010811b7 ESMCI::FTable::callVFuncPtr()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+ 6 0x000000000107d0bc ESMCI_FTableCallEntryPointVMHop()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+ 7 0x00000000017e32a5 _INTERNAL_103__work_noaa_da_mpotts_sandbox_pgi_2019_openmpi_g_develop_esmf_src_Infrastructure_VM_src_ESMCI_VMKernel_C_c2a589ef::ESMCI::enter_callback()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:1124
+ 8 0x00000000017cf78f ESMCI::VMK::enter()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:2435
+ 9 0x00000000017f3f5d ESMCI::VM::enter()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+10 0x000000000107d581 c_esmc_ftablecallentrypointvm_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+11 0x0000000001b3df35 esmf_compmod_esmf_compexecute_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+12 0x0000000001e54bc1 esmf_gridcompmod_esmf_gridcompinitialize_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMF_GridComp.F90:1412
+13 0x00000000004131df MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/system_tests/ESMF_TransferMesh/ESMF_TransferMeshSTest.F90:221
+14 0x00000000004076d3 main()  ???:0
+15 0x0000000000022495 __libc_start_main()  ???:0
+16 0x00000000004075d9 _start()  ???:0
+=================================
+[Orion-01-54:292288] *** Process received signal ***
+[Orion-01-54:292288] Signal: Segmentation fault (11)
+[Orion-01-54:292288] Signal code:  (-6)
+[Orion-01-54:292288] Failing at address: 0x20e5000475c0
+[Orion-01-54:292288] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7f59d85ca5d0]
+==== backtrace (tid: 292290) ====
+ 0 0x000000000121aac4 ESMCI::LogErr::MsgFoundError()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 1 0x00000000013ff1b1 ESMCI::MeshCap::meshcreatenodedistgrid()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Mesh/src/ESMCI_MeshCap.C:1754
+ 2 0x0000000001444d47 c_esmc_meshcreatenodedistgrid_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:247
+ 3 0x00000000021129cd esmf_meshmod_esmf_meshcreate1part_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:1407
+ 4 0x000000000040b801 user_model1_user_initp1_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/system_tests/ESMF_TransferMesh/user_model1.F90:262
+ 5 0x00000000010811b7 ESMCI::FTable::callVFuncPtr()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+ 6 0x000000000107d0bc ESMCI_FTableCallEntryPointVMHop()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+ 7 0x00000000017e32a5 _INTERNAL_103__work_noaa_da_mpotts_sandbox_pgi_2019_openmpi_g_develop_esmf_src_Infrastructure_VM_src_ESMCI_VMKernel_C_c2a589ef::ESMCI::enter_callback()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:1124
+ 8 0x00000000017cf78f ESMCI::VMK::enter()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:2435
+ 9 0x00000000017f3f5d ESMCI::VM::enter()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+10 0x000000000107d581 c_esmc_ftablecallentrypointvm_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+11 0x0000000001b3df35 esmf_compmod_esmf_compexecute_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+12 0x0000000001e54bc1 esmf_gridcompmod_esmf_gridcompinitialize_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Superstructure/Component/src/ESMF_GridComp.F90:1412
+13 0x00000000004131df MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/system_tests/ESMF_TransferMesh/ESMF_TransferMeshSTest.F90:221
+14 0x00000000004076d3 main()  ???:0
+15 0x0000000000022495 __libc_start_main()  ???:0
+16 0x00000000004075d9 _start()  ???:0
+=================================
+[Orion-01-54:292290] *** Process received signal ***
+[Orion-01-54:292290] Signal: Segmentation fault (11)
+[Orion-01-54:292290] Signal code:  (-6)
+[Orion-01-54:292290] Failing at address: 0x20e5000475c2
+[Orion-01-54:292290] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7f2d9be4e5d0]
+[Orion-01-54:292288] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI6LogErr13MsgFoundErrorEiPKciS2_S2_Pi+0x34)[0x7f59d5916ac4]
+[Orion-01-54:292290] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI6LogErr13MsgFoundErrorEiPKciS2_S2_Pi+0x34)[0x7f2d9919aac4]
+[Orion-01-54:292288] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI7MeshCap22meshcreatenodedistgridEPi+0x81)[0x7f59d5afb1b1]
+[Orion-01-54:292290] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI7MeshCap22meshcreatenodedistgridEPi+0x81)[0x7f2d9937f1b1]
+[Orion-01-54:292288] [ 3] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(c_esmc_meshcreatenodedistgrid_+0x177)[0x7f59d5b40d47]
+[Orion-01-54:292290] [ 3] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(c_esmc_meshcreatenodedistgrid_+0x177)[0x7f2d993c4d47]
+[Orion-01-54:292288] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_meshmod_esmf_meshcreate1part_+0x13cd)[0x7f59d680e9cd]
+[Orion-01-54:292288] [ 5] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/test/testg/Linux.pgi.64.openmpi.default/./ESMF_TransferMeshSTest[0x40b801]
+[Orion-01-54:292290] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_meshmod_esmf_meshcreate1part_+0x13cd)[0x7f2d9a0929cd]
+[Orion-01-54:292290] [ 5] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/test/testg/Linux.pgi.64.openmpi.default/./ESMF_TransferMeshSTest[0x40b801]
+[Orion-01-54:292288] [ 6] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI6FTable12callVFuncPtrEPKcPNS_2VMEPi+0xcf7)[0x7f59d577d1b7]
+[Orion-01-54:292290] [ 6] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI6FTable12callVFuncPtrEPKcPNS_2VMEPi+0xcf7)[0x7f2d990011b7]
+[Orion-01-54:292288] [ 7] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(ESMCI_FTableCallEntryPointVMHop+0x2ac)[0x7f59d57790bc]
+[Orion-01-54:292290] [ 7] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(ESMCI_FTableCallEntryPointVMHop+0x2ac)[0x7f2d98ffd0bc]
+[Orion-01-54:292288] [ 8] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(+0x17e32a5)[0x7f59d5edf2a5]
+[Orion-01-54:292290] [ 8] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(+0x17e32a5)[0x7f2d997632a5]
+[Orion-01-54:292288] [ 9] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK5enterEPNS_7VMKPlanEPvS3_+0x2bf)[0x7f59d5ecb78f]
+[Orion-01-54:292290] [ 9] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK5enterEPNS_7VMKPlanEPvS3_+0x2bf)[0x7f2d9974f78f]
+[Orion-01-54:292288] [10] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM5enterEPNS_6VMPlanEPvS3_+0xcd)[0x7f59d5eeff5d]
+[Orion-01-54:292290] [10] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM5enterEPNS_6VMPlanEPvS3_+0xcd)[0x7f2d99773f5d]
+[Orion-01-54:292288] [11] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(c_esmc_ftablecallentrypointvm_+0x3a1)[0x7f59d5779581]
+[Orion-01-54:292290] [11] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(c_esmc_ftablecallentrypointvm_+0x3a1)[0x7f2d98ffd581]
+[Orion-01-54:292288] [12] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_compmod_esmf_compexecute_+0xbd5)[0x7f59d6239f35]
+[Orion-01-54:292290] [12] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_compmod_esmf_compexecute_+0xbd5)[0x7f2d99abdf35]
+[Orion-01-54:292288] [13] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_gridcompmod_esmf_gridcompinitialize_+0x1f1)[0x7f59d6550bc1]
+[Orion-01-54:292288] [14] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/test/testg/Linux.pgi.64.openmpi.default/./ESMF_TransferMeshSTest[0x4131df]
+[Orion-01-54:292288] [15] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/test/testg/Linux.pgi.64.openmpi.default/./ESMF_TransferMeshSTest[0x4076d3]
+[Orion-01-54:292288] [16] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7f59d0b49495]
+[Orion-01-54:292288] [17] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/test/testg/Linux.pgi.64.openmpi.default/./ESMF_TransferMeshSTest[0x4075d9]
+[Orion-01-54:292288] *** End of error message ***
+[Orion-01-54:292290] [13] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_gridcompmod_esmf_gridcompinitialize_+0x1f1)[0x7f2d99dd4bc1]
+[Orion-01-54:292290] [14] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/test/testg/Linux.pgi.64.openmpi.default/./ESMF_TransferMeshSTest[0x4131df]
+[Orion-01-54:292290] [15] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/test/testg/Linux.pgi.64.openmpi.default/./ESMF_TransferMeshSTest[0x4076d3]
+[Orion-01-54:292290] [16] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7f2d943cd495]
+[Orion-01-54:292290] [17] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/test/testg/Linux.pgi.64.openmpi.default/./ESMF_TransferMeshSTest[0x4075d9]
+[Orion-01-54:292290] *** End of error message ***
+srun: error: Orion-01-54: tasks 0,2: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=10325156.255
+slurmstepd: error: *** STEP 10325156.255 ON Orion-01-54 CANCELLED AT 2023-05-02T04:19:52 ***
+srun: error: Orion-01-54: tasks 1,3-5: Terminated
+srun: Force Terminated StepId=10325156.255
