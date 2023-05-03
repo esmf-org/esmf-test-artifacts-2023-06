@@ -1,0 +1,287 @@
+2023-05-03 22:19:19
+[0] MPI startup(): I_MPI_C environment variable is not supported.
+[0] MPI startup(): Similar variables:
+	 I_MPI_CBWR
+	 I_MPI_CXXFLAGS
+	 I_MPI_CFLAGS
+	 I_MPI_CXX
+	 I_MPI_CC
+[0] MPI startup(): To check the list of supported variables, use the impi_info utility or refer to https://software.intel.com/en-us/mpi-library/documentation/get-started.
+[h33m23:219621:0:219621] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+[h33m23:219622:0:219622] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+[h33m23:219623:0:219623] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+[h33m23:219624:0:219624] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+==== backtrace (tid: 219623) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e47292 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000ced446 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000bc0f50 esmf_fieldregridmod_mp_b_or_p_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:3228
+ 6 0x0000000000bc0a03 esmf_fieldregridmod_mp_getmeshwithnodesonfieldloc_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:1346
+ 7 0x0000000000bbec53 esmf_fieldregridmod_mp_esmf_fieldregridstorenx_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:971
+ 8 0x0000000000a431ce esmf_fieldbundlemod_mp_esmf_fieldbundleregridstorepair_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/FieldBundle/src/ESMF_FieldBundle.F90:16211
+ 9 0x000000000101e140 nuopc_connector_mp_fieldbundlecplstore_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Connector.F90:7714
+10 0x0000000001033934 nuopc_connector_mp_initializeipdv05p6b_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Connector.F90:5386
+11 0x00000000004832b6 ESMCI::FTable::callVFuncPtr()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+12 0x0000000000482d1c ESMCI_FTableCallEntryPointVMHop()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+13 0x000000000071baf0 ESMCI::VMK::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:0
+14 0x000000000070ebc8 ESMCI::VM::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+15 0x00000000004839b1 c_esmc_ftablecallentrypointvm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+16 0x00000000009a4a20 esmf_compmod_mp_esmf_compexecute_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+17 0x00000000009d1411 esmf_cplcompmod_mp_esmf_cplcompinitialize_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_CplComp.F90:1165
+18 0x0000000001092405 nuopc_driver_mp_loopconnectorcompss_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:3023
+19 0x00000000010b1d61 nuopc_driver_mp_initializeipdv02p3_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:2110
+20 0x00000000010c46e0 nuopc_driver_mp_initializegeneric_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:479
+21 0x00000000004832b6 ESMCI::FTable::callVFuncPtr()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+22 0x0000000000482d1c ESMCI_FTableCallEntryPointVMHop()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+23 0x000000000071baf0 ESMCI::VMK::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:0
+24 0x000000000070ebc8 ESMCI::VM::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+25 0x00000000004839b1 c_esmc_ftablecallentrypointvm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+26 0x00000000009a4a20 esmf_compmod_mp_esmf_compexecute_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+27 0x0000000000cec781 esmf_gridcompmod_mp_esmf_gridcompinitialize_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_GridComp.F90:1412
+28 0x0000000000413506 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/nuopc-app-prototypes/AtmOcnMedProto/esmApp.F90:58
+29 0x000000000041311d main()  ???:0
+30 0x0000000000022555 __libc_start_main()  ???:0
+31 0x0000000000413036 _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B4C3A4F7630  Unknown               Unknown  Unknown
+libesmf.so         00002B4C3659216E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002B4C366B980B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002B4C36EA6292  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002B4C36D4C446  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002B4C36C1FF50  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B4C36C1FA03  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B4C36C1DC53  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B4C36AA21CE  esmf_fieldbundlem     Unknown  Unknown
+libesmf.so         00002B4C3707D140  nuopc_connector_m     Unknown  Unknown
+libesmf.so         00002B4C37092934  nuopc_connector_m     Unknown  Unknown
+libesmf.so         00002B4C364E22B6  _ZN5ESMCI6FTable1     Unknown  Unknown
+libesmf.so         00002B4C364E1D1C  ESMCI_FTableCallE     Unknown  Unknown
+libesmf.so         00002B4C3677AAF0  _ZN5ESMCI3VMK5ent     Unknown  Unknown
+libesmf.so         00002B4C3676DBC8  _ZN5ESMCI2VM5ente     Unknown  Unknown
+libesmf.so         00002B4C364E29B1  c_esmc_ftablecall     Unknown  Unknown
+libesmf.so         00002B4C36A03A20  esmf_compmod_mp_e     Unknown  Unknown
+libesmf.so         00002B4C36A30411  esmf_cplcompmod_m     Unknown  Unknown
+libesmf.so         00002B4C370F1405  nuopc_driver_mp_l     Unknown  Unknown
+libesmf.so         00002B4C37110D61  nuopc_driver_mp_i     Unknown  Unknown
+libesmf.so         00002B4C371236E0  nuopc_driver_mp_i     Unknown  Unknown
+libesmf.so         00002B4C364E22B6  _ZN5ESMCI6FTable1     Unknown  Unknown
+libesmf.so         00002B4C364E1D1C  ESMCI_FTableCallE     Unknown  Unknown
+libesmf.so         00002B4C3677AAF0  _ZN5ESMCI3VMK5ent     Unknown  Unknown
+libesmf.so         00002B4C3676DBC8  _ZN5ESMCI2VM5ente     Unknown  Unknown
+libesmf.so         00002B4C364E29B1  c_esmc_ftablecall     Unknown  Unknown
+libesmf.so         00002B4C36A03A20  esmf_compmod_mp_e     Unknown  Unknown
+libesmf.so         00002B4C36D4B781  esmf_gridcompmod_     Unknown  Unknown
+esmApp             0000000000413506  Unknown               Unknown  Unknown
+esmApp             000000000041311D  Unknown               Unknown  Unknown
+libc-2.17.so       00002B4C3B385555  __libc_start_main     Unknown  Unknown
+esmApp             0000000000413036  Unknown               Unknown  Unknown
+==== backtrace (tid: 219621) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e47292 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000ced446 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000bc0f50 esmf_fieldregridmod_mp_b_or_p_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:3228
+ 6 0x0000000000bc0a03 esmf_fieldregridmod_mp_getmeshwithnodesonfieldloc_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:1346
+ 7 0x0000000000bbec53 esmf_fieldregridmod_mp_esmf_fieldregridstorenx_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:971
+ 8 0x0000000000a431ce esmf_fieldbundlemod_mp_esmf_fieldbundleregridstorepair_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/FieldBundle/src/ESMF_FieldBundle.F90:16211
+ 9 0x000000000101e140 nuopc_connector_mp_fieldbundlecplstore_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Connector.F90:7714
+10 0x0000000001033934 nuopc_connector_mp_initializeipdv05p6b_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Connector.F90:5386
+11 0x00000000004832b6 ESMCI::FTable::callVFuncPtr()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+12 0x0000000000482d1c ESMCI_FTableCallEntryPointVMHop()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+13 0x000000000071baf0 ESMCI::VMK::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:0
+14 0x000000000070ebc8 ESMCI::VM::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+15 0x00000000004839b1 c_esmc_ftablecallentrypointvm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+16 0x00000000009a4a20 esmf_compmod_mp_esmf_compexecute_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+17 0x00000000009d1411 esmf_cplcompmod_mp_esmf_cplcompinitialize_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_CplComp.F90:1165
+18 0x0000000001092405 nuopc_driver_mp_loopconnectorcompss_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:3023
+19 0x00000000010b1d61 nuopc_driver_mp_initializeipdv02p3_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:2110
+20 0x00000000010c46e0 nuopc_driver_mp_initializegeneric_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:479
+21 0x00000000004832b6 ESMCI::FTable::callVFuncPtr()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+22 0x0000000000482d1c ESMCI_FTableCallEntryPointVMHop()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+23 0x000000000071baf0 ESMCI::VMK::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:0
+24 0x000000000070ebc8 ESMCI::VM::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+25 0x00000000004839b1 c_esmc_ftablecallentrypointvm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+26 0x00000000009a4a20 esmf_compmod_mp_esmf_compexecute_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+27 0x0000000000cec781 esmf_gridcompmod_mp_esmf_gridcompinitialize_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_GridComp.F90:1412
+28 0x0000000000413506 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/nuopc-app-prototypes/AtmOcnMedProto/esmApp.F90:58
+29 0x000000000041311d main()  ???:0
+30 0x0000000000022555 __libc_start_main()  ???:0
+31 0x0000000000413036 _start()  ???:0
+=================================
+==== backtrace (tid: 219622) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e47292 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000ced446 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000bc0f50 esmf_fieldregridmod_mp_b_or_p_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:3228
+ 6 0x0000000000bc0a03 esmf_fieldregridmod_mp_getmeshwithnodesonfieldloc_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:1346
+ 7 0x0000000000bbec53 esmf_fieldregridmod_mp_esmf_fieldregridstorenx_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:971
+ 8 0x0000000000a431ce esmf_fieldbundlemod_mp_esmf_fieldbundleregridstorepair_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/FieldBundle/src/ESMF_FieldBundle.F90:16211
+ 9 0x000000000101e140 nuopc_connector_mp_fieldbundlecplstore_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Connector.F90:7714
+10 0x0000000001033934 nuopc_connector_mp_initializeipdv05p6b_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Connector.F90:5386
+11 0x00000000004832b6 ESMCI::FTable::callVFuncPtr()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+12 0x0000000000482d1c ESMCI_FTableCallEntryPointVMHop()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+13 0x000000000071baf0 ESMCI::VMK::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:0
+14 0x000000000070ebc8 ESMCI::VM::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+15 0x00000000004839b1 c_esmc_ftablecallentrypointvm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+16 0x00000000009a4a20 esmf_compmod_mp_esmf_compexecute_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+17 0x00000000009d1411 esmf_cplcompmod_mp_esmf_cplcompinitialize_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_CplComp.F90:1165
+18 0x0000000001092405 nuopc_driver_mp_loopconnectorcompss_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:3023
+19 0x00000000010b1d61 nuopc_driver_mp_initializeipdv02p3_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:2110
+20 0x00000000010c46e0 nuopc_driver_mp_initializegeneric_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:479
+21 0x00000000004832b6 ESMCI::FTable::callVFuncPtr()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+22 0x0000000000482d1c ESMCI_FTableCallEntryPointVMHop()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+23 0x000000000071baf0 ESMCI::VMK::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:0
+24 0x000000000070ebc8 ESMCI::VM::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+25 0x00000000004839b1 c_esmc_ftablecallentrypointvm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+26 0x00000000009a4a20 esmf_compmod_mp_esmf_compexecute_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+27 0x0000000000cec781 esmf_gridcompmod_mp_esmf_gridcompinitialize_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_GridComp.F90:1412
+28 0x0000000000413506 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/nuopc-app-prototypes/AtmOcnMedProto/esmApp.F90:58
+29 0x000000000041311d main()  ???:0
+30 0x0000000000022555 __libc_start_main()  ???:0
+31 0x0000000000413036 _start()  ???:0
+=================================
+==== backtrace (tid: 219624) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e47292 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000ced446 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000bc0f50 esmf_fieldregridmod_mp_b_or_p_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:3228
+ 6 0x0000000000bc0a03 esmf_fieldregridmod_mp_getmeshwithnodesonfieldloc_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:1346
+ 7 0x0000000000bbec53 esmf_fieldregridmod_mp_esmf_fieldregridstorenx_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:971
+ 8 0x0000000000a431ce esmf_fieldbundlemod_mp_esmf_fieldbundleregridstorepair_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/FieldBundle/src/ESMF_FieldBundle.F90:16211
+ 9 0x000000000101e140 nuopc_connector_mp_fieldbundlecplstore_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Connector.F90:7714
+10 0x0000000001033934 nuopc_connector_mp_initializeipdv05p6b_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Connector.F90:5386
+11 0x00000000004832b6 ESMCI::FTable::callVFuncPtr()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+12 0x0000000000482d1c ESMCI_FTableCallEntryPointVMHop()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+13 0x000000000071baf0 ESMCI::VMK::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:0
+14 0x000000000070ebc8 ESMCI::VM::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+15 0x00000000004839b1 c_esmc_ftablecallentrypointvm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+16 0x00000000009a4a20 esmf_compmod_mp_esmf_compexecute_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+17 0x00000000009d1411 esmf_cplcompmod_mp_esmf_cplcompinitialize_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_CplComp.F90:1165
+18 0x0000000001092405 nuopc_driver_mp_loopconnectorcompss_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:3023
+19 0x00000000010b1d61 nuopc_driver_mp_initializeipdv02p3_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:2110
+20 0x00000000010c46e0 nuopc_driver_mp_initializegeneric_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/addon/NUOPC/src/NUOPC_Driver.F90:479
+21 0x00000000004832b6 ESMCI::FTable::callVFuncPtr()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:2167
+22 0x0000000000482d1c ESMCI_FTableCallEntryPointVMHop()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:824
+23 0x000000000071baf0 ESMCI::VMK::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VMKernel.C:0
+24 0x000000000070ebc8 ESMCI::VM::enter()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/VM/src/ESMCI_VM.C:1216
+25 0x00000000004839b1 c_esmc_ftablecallentrypointvm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMCI_FTable.C:981
+26 0x00000000009a4a20 esmf_compmod_mp_esmf_compexecute_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_Comp.F90:1223
+27 0x0000000000cec781 esmf_gridcompmod_mp_esmf_gridcompinitialize_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Superstructure/Component/src/ESMF_GridComp.F90:1412
+28 0x0000000000413506 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/nuopc-app-prototypes/AtmOcnMedProto/esmApp.F90:58
+29 0x000000000041311d main()  ???:0
+30 0x0000000000022555 __libc_start_main()  ???:0
+31 0x0000000000413036 _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B5D5DB04630  Unknown               Unknown  Unknown
+libesmf.so         00002B5D59B9F16E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002B5D59CC680B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002B5D5A4B3292  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002B5D5A359446  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002B5D5A22CF50  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B5D5A22CA03  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B5D5A22AC53  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B5D5A0AF1CE  esmf_fieldbundlem     Unknown  Unknown
+libesmf.so         00002B5D5A68A140  nuopc_connector_m     Unknown  Unknown
+libesmf.so         00002B5D5A69F934  nuopc_connector_m     Unknown  Unknown
+libesmf.so         00002B5D59AEF2B6  _ZN5ESMCI6FTable1     Unknown  Unknown
+libesmf.so         00002B5D59AEED1C  ESMCI_FTableCallE     Unknown  Unknown
+libesmf.so         00002B5D59D87AF0  _ZN5ESMCI3VMK5ent     Unknown  Unknown
+libesmf.so         00002B5D59D7ABC8  _ZN5ESMCI2VM5ente     Unknown  Unknown
+libesmf.so         00002B5D59AEF9B1  c_esmc_ftablecall     Unknown  Unknown
+libesmf.so         00002B5D5A010A20  esmf_compmod_mp_e     Unknown  Unknown
+libesmf.so         00002B5D5A03D411  esmf_cplcompmod_m     Unknown  Unknown
+libesmf.so         00002B5D5A6FE405  nuopc_driver_mp_l     Unknown  Unknown
+libesmf.so         00002B5D5A71DD61  nuopc_driver_mp_i     Unknown  Unknown
+libesmf.so         00002B5D5A7306E0  nuopc_driver_mp_i     Unknown  Unknown
+libesmf.so         00002B5D59AEF2B6  _ZN5ESMCI6FTable1     Unknown  Unknown
+libesmf.so         00002B5D59AEED1C  ESMCI_FTableCallE     Unknown  Unknown
+libesmf.so         00002B5D59D87AF0  _ZN5ESMCI3VMK5ent     Unknown  Unknown
+libesmf.so         00002B5D59D7ABC8  _ZN5ESMCI2VM5ente     Unknown  Unknown
+libesmf.so         00002B5D59AEF9B1  c_esmc_ftablecall     Unknown  Unknown
+libesmf.so         00002B5D5A010A20  esmf_compmod_mp_e     Unknown  Unknown
+libesmf.so         00002B5D5A358781  esmf_gridcompmod_     Unknown  Unknown
+esmApp             0000000000413506  Unknown               Unknown  Unknown
+esmApp             000000000041311D  Unknown               Unknown  Unknown
+libc-2.17.so       00002B5D5E992555  __libc_start_main     Unknown  Unknown
+esmApp             0000000000413036  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002AB79CC99630  Unknown               Unknown  Unknown
+libesmf.so         00002AB798D3416E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002AB798E5B80B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002AB799648292  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002AB7994EE446  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002AB7993C1F50  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002AB7993C1A03  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002AB7993BFC53  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002AB7992441CE  esmf_fieldbundlem     Unknown  Unknown
+libesmf.so         00002AB79981F140  nuopc_connector_m     Unknown  Unknown
+libesmf.so         00002AB799834934  nuopc_connector_m     Unknown  Unknown
+libesmf.so         00002AB798C842B6  _ZN5ESMCI6FTable1     Unknown  Unknown
+libesmf.so         00002AB798C83D1C  ESMCI_FTableCallE     Unknown  Unknown
+libesmf.so         00002AB798F1CAF0  _ZN5ESMCI3VMK5ent     Unknown  Unknown
+libesmf.so         00002AB798F0FBC8  _ZN5ESMCI2VM5ente     Unknown  Unknown
+libesmf.so         00002AB798C849B1  c_esmc_ftablecall     Unknown  Unknown
+libesmf.so         00002AB7991A5A20  esmf_compmod_mp_e     Unknown  Unknown
+libesmf.so         00002AB7991D2411  esmf_cplcompmod_m     Unknown  Unknown
+libesmf.so         00002AB799893405  nuopc_driver_mp_l     Unknown  Unknown
+libesmf.so         00002AB7998B2D61  nuopc_driver_mp_i     Unknown  Unknown
+libesmf.so         00002AB7998C56E0  nuopc_driver_mp_i     Unknown  Unknown
+libesmf.so         00002AB798C842B6  _ZN5ESMCI6FTable1     Unknown  Unknown
+libesmf.so         00002AB798C83D1C  ESMCI_FTableCallE     Unknown  Unknown
+libesmf.so         00002AB798F1CAF0  _ZN5ESMCI3VMK5ent     Unknown  Unknown
+libesmf.so         00002AB798F0FBC8  _ZN5ESMCI2VM5ente     Unknown  Unknown
+libesmf.so         00002AB798C849B1  c_esmc_ftablecall     Unknown  Unknown
+libesmf.so         00002AB7991A5A20  esmf_compmod_mp_e     Unknown  Unknown
+libesmf.so         00002AB7994ED781  esmf_gridcompmod_     Unknown  Unknown
+esmApp             0000000000413506  Unknown               Unknown  Unknown
+esmApp             000000000041311D  Unknown               Unknown  Unknown
+libc-2.17.so       00002AB79DB27555  __libc_start_main     Unknown  Unknown
+esmApp             0000000000413036  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B18600F2630  Unknown               Unknown  Unknown
+libesmf.so         00002B185C18D16E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002B185C2B480B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002B185CAA1292  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002B185C947446  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002B185C81AF50  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B185C81AA03  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B185C818C53  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B185C69D1CE  esmf_fieldbundlem     Unknown  Unknown
+libesmf.so         00002B185CC78140  nuopc_connector_m     Unknown  Unknown
+libesmf.so         00002B185CC8D934  nuopc_connector_m     Unknown  Unknown
+libesmf.so         00002B185C0DD2B6  _ZN5ESMCI6FTable1     Unknown  Unknown
+libesmf.so         00002B185C0DCD1C  ESMCI_FTableCallE     Unknown  Unknown
+libesmf.so         00002B185C375AF0  _ZN5ESMCI3VMK5ent     Unknown  Unknown
+libesmf.so         00002B185C368BC8  _ZN5ESMCI2VM5ente     Unknown  Unknown
+libesmf.so         00002B185C0DD9B1  c_esmc_ftablecall     Unknown  Unknown
+libesmf.so         00002B185C5FEA20  esmf_compmod_mp_e     Unknown  Unknown
+libesmf.so         00002B185C62B411  esmf_cplcompmod_m     Unknown  Unknown
+libesmf.so         00002B185CCEC405  nuopc_driver_mp_l     Unknown  Unknown
+libesmf.so         00002B185CD0BD61  nuopc_driver_mp_i     Unknown  Unknown
+libesmf.so         00002B185CD1E6E0  nuopc_driver_mp_i     Unknown  Unknown
+libesmf.so         00002B185C0DD2B6  _ZN5ESMCI6FTable1     Unknown  Unknown
+libesmf.so         00002B185C0DCD1C  ESMCI_FTableCallE     Unknown  Unknown
+libesmf.so         00002B185C375AF0  _ZN5ESMCI3VMK5ent     Unknown  Unknown
+libesmf.so         00002B185C368BC8  _ZN5ESMCI2VM5ente     Unknown  Unknown
+libesmf.so         00002B185C0DD9B1  c_esmc_ftablecall     Unknown  Unknown
+libesmf.so         00002B185C5FEA20  esmf_compmod_mp_e     Unknown  Unknown
+libesmf.so         00002B185C946781  esmf_gridcompmod_     Unknown  Unknown
+esmApp             0000000000413506  Unknown               Unknown  Unknown
+esmApp             000000000041311D  Unknown               Unknown  Unknown
+libc-2.17.so       00002B1860F80555  __libc_start_main     Unknown  Unknown
+esmApp             0000000000413036  Unknown               Unknown  Unknown
+srun: error: h33m23: tasks 0-3: Exited with exit code 174
+srun: launch/slurm: _step_signal: Terminating StepId=44414980.356

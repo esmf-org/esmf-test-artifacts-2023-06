@@ -1,0 +1,35 @@
+2023-05-03 22:19:19
+[0] MPI startup(): I_MPI_C environment variable is not supported.
+[0] MPI startup(): Similar variables:
+	 I_MPI_CBWR
+	 I_MPI_CXXFLAGS
+	 I_MPI_CFLAGS
+	 I_MPI_CXX
+	 I_MPI_CC
+[0] MPI startup(): To check the list of supported variables, use the impi_info utility or refer to https://software.intel.com/en-us/mpi-library/documentation/get-started.
+Beginning Test, file ESMC_FieldUTest.c, line 76
+Beginning Test, file ESMC_FieldUTest.c, line 76NUMBER_OF_PROCESSORS 1
+PASS MeshCreate, ESMC_FieldUTest.c, line 88
+PASS MeshVTKHeader, ESMC_FieldUTest.c, line 97
+PASS MeshVTKBody, ESMC_FieldUTest.c, line 116
+PASS MeshAddNodes, ESMC_FieldUTest.c, line 136
+PASS MeshAddElements, ESMC_FieldUTest.c, line 146
+PASS ArraySpecSet, ESMC_FieldUTest.c, line 154
+PASS Set up gridToFieldMap, ESMC_FieldUTest.c, line 164
+PASS Set up ungriddedLBound, ESMC_FieldUTest.c, line 175
+PASS Set up ungriddedUBound, ESMC_FieldUTest.c, line 186
+[h33m23:51134:0:51134] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+==== backtrace (tid:  51134) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e47441 esmf_meshmod_mp_esmf_meshcreatefromintptr_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3158
+ 4 0x0000000000bd2408 f_esmf_fieldcreatemeshas_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/interface/ESMF_Field_C.F90:236
+ 5 0x0000000000485529 ESMCI::Field::create()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/interface/ESMCI_Field.C:620
+ 6 0x000000000075c685 ESMC_FieldCreateMeshArraySpec()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/interface/ESMC_Field.C:116
+ 7 0x0000000000406505 main()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/tests/ESMC_FieldUTest.c:194
+ 8 0x0000000000022555 __libc_start_main()  ???:0
+ 9 0x0000000000405aa9 _start()  ???:0
+=================================
+srun: error: h33m23: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=44414980.117

@@ -1,0 +1,143 @@
+2023-05-03 22:19:19
+[0] MPI startup(): I_MPI_C environment variable is not supported.
+[0] MPI startup(): Similar variables:
+	 I_MPI_CBWR
+	 I_MPI_CXXFLAGS
+	 I_MPI_CFLAGS
+	 I_MPI_CXX
+	 I_MPI_CC
+[0] MPI startup(): To check the list of supported variables, use the impi_info utility or refer to https://software.intel.com/en-us/mpi-library/documentation/get-started.
+  Beginning Test, file ESMF_FieldRegridCSUTest.F90, line 60
+  NUMBER_OF_PROCESSORS           4
+  Beginning Test, file ESMF_FieldRegridCSUTest.F90, line 60
+  NUMBER_OF_PROCESSORS           4
+  Beginning Test, file ESMF_FieldRegridCSUTest.F90, line 60
+  NUMBER_OF_PROCESSORS           4
+  Beginning Test, file ESMF_FieldRegridCSUTest.F90, line 60
+  NUMBER_OF_PROCESSORS           4
+[h33m23:53608:0:53608] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+[h33m23:53609:0:53609] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+[h33m23:53610:0:53610] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+[h33m23:53611:0:53611] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+==== backtrace (tid:  53611) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e47292 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000ced446 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000bc0f50 esmf_fieldregridmod_mp_b_or_p_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:3228
+ 6 0x0000000000bc0a03 esmf_fieldregridmod_mp_getmeshwithnodesonfieldloc_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:1346
+ 7 0x0000000000bbec53 esmf_fieldregridmod_mp_esmf_fieldregridstorenx_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:971
+ 8 0x0000000000428441 esmf_fieldregridutest_IP_test_bilinear_regrid_csgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/tests/ESMF_FieldRegridCSUTest.F90:617
+ 9 0x000000000041342d MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/tests/ESMF_FieldRegridCSUTest.F90:77
+10 0x00000000004132dd main()  ???:0
+11 0x0000000000022555 __libc_start_main()  ???:0
+12 0x00000000004131f6 _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002ADB6FC29630  Unknown               Unknown  Unknown
+libesmf.so         00002ADB6BCC416E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002ADB6BDEB80B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002ADB6C5D8292  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002ADB6C47E446  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002ADB6C351F50  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002ADB6C351A03  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002ADB6C34FC53  esmf_fieldregridm     Unknown  Unknown
+ESMF_FieldRegridC  0000000000428441  Unknown               Unknown  Unknown
+ESMF_FieldRegridC  000000000041342D  Unknown               Unknown  Unknown
+ESMF_FieldRegridC  00000000004132DD  Unknown               Unknown  Unknown
+libc-2.17.so       00002ADB70AB7555  __libc_start_main     Unknown  Unknown
+ESMF_FieldRegridC  00000000004131F6  Unknown               Unknown  Unknown
+==== backtrace (tid:  53610) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e47292 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000ced446 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000bc0f50 esmf_fieldregridmod_mp_b_or_p_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:3228
+ 6 0x0000000000bc0a03 esmf_fieldregridmod_mp_getmeshwithnodesonfieldloc_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:1346
+ 7 0x0000000000bbec53 esmf_fieldregridmod_mp_esmf_fieldregridstorenx_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:971
+ 8 0x0000000000428441 esmf_fieldregridutest_IP_test_bilinear_regrid_csgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/tests/ESMF_FieldRegridCSUTest.F90:617
+ 9 0x000000000041342d MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/tests/ESMF_FieldRegridCSUTest.F90:77
+10 0x00000000004132dd main()  ???:0
+11 0x0000000000022555 __libc_start_main()  ???:0
+12 0x00000000004131f6 _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B7F8871B630  Unknown               Unknown  Unknown
+libesmf.so         00002B7F847B616E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002B7F848DD80B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002B7F850CA292  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002B7F84F70446  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002B7F84E43F50  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B7F84E43A03  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B7F84E41C53  esmf_fieldregridm     Unknown  Unknown
+ESMF_FieldRegridC  0000000000428441  Unknown               Unknown  Unknown
+ESMF_FieldRegridC  000000000041342D  Unknown               Unknown  Unknown
+ESMF_FieldRegridC  00000000004132DD  Unknown               Unknown  Unknown
+libc-2.17.so       00002B7F895A9555  __libc_start_main     Unknown  Unknown
+ESMF_FieldRegridC  00000000004131F6  Unknown               Unknown  Unknown
+==== backtrace (tid:  53609) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e47292 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000ced446 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000bc0f50 esmf_fieldregridmod_mp_b_or_p_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:3228
+ 6 0x0000000000bc0a03 esmf_fieldregridmod_mp_getmeshwithnodesonfieldloc_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:1346
+ 7 0x0000000000bbec53 esmf_fieldregridmod_mp_esmf_fieldregridstorenx_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:971
+ 8 0x0000000000428441 esmf_fieldregridutest_IP_test_bilinear_regrid_csgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/tests/ESMF_FieldRegridCSUTest.F90:617
+ 9 0x000000000041342d MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/tests/ESMF_FieldRegridCSUTest.F90:77
+10 0x00000000004132dd main()  ???:0
+11 0x0000000000022555 __libc_start_main()  ???:0
+12 0x00000000004131f6 _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B4CBF79F630  Unknown               Unknown  Unknown
+libesmf.so         00002B4CBB83A16E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002B4CBB96180B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002B4CBC14E292  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002B4CBBFF4446  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002B4CBBEC7F50  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B4CBBEC7A03  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002B4CBBEC5C53  esmf_fieldregridm     Unknown  Unknown
+ESMF_FieldRegridC  0000000000428441  Unknown               Unknown  Unknown
+ESMF_FieldRegridC  000000000041342D  Unknown               Unknown  Unknown
+ESMF_FieldRegridC  00000000004132DD  Unknown               Unknown  Unknown
+libc-2.17.so       00002B4CC062D555  __libc_start_main     Unknown  Unknown
+ESMF_FieldRegridC  00000000004131F6  Unknown               Unknown  Unknown
+==== backtrace (tid:  53608) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e47292 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000ced446 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000bc0f50 esmf_fieldregridmod_mp_b_or_p_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:3228
+ 6 0x0000000000bc0a03 esmf_fieldregridmod_mp_getmeshwithnodesonfieldloc_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:1346
+ 7 0x0000000000bbec53 esmf_fieldregridmod_mp_esmf_fieldregridstorenx_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/src/ESMF_FieldRegrid.F90:971
+ 8 0x0000000000428441 esmf_fieldregridutest_IP_test_bilinear_regrid_csgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/tests/ESMF_FieldRegridCSUTest.F90:617
+ 9 0x000000000041342d MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_develop/esmf/src/Infrastructure/Field/tests/ESMF_FieldRegridCSUTest.F90:77
+10 0x00000000004132dd main()  ???:0
+11 0x0000000000022555 __libc_start_main()  ???:0
+12 0x00000000004131f6 _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002AE46DF57630  Unknown               Unknown  Unknown
+libesmf.so         00002AE469FF216E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002AE46A11980B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002AE46A906292  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002AE46A7AC446  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002AE46A67FF50  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002AE46A67FA03  esmf_fieldregridm     Unknown  Unknown
+libesmf.so         00002AE46A67DC53  esmf_fieldregridm     Unknown  Unknown
+ESMF_FieldRegridC  0000000000428441  Unknown               Unknown  Unknown
+ESMF_FieldRegridC  000000000041342D  Unknown               Unknown  Unknown
+ESMF_FieldRegridC  00000000004132DD  Unknown               Unknown  Unknown
+libc-2.17.so       00002AE46EDE5555  __libc_start_main     Unknown  Unknown
+ESMF_FieldRegridC  00000000004131F6  Unknown               Unknown  Unknown
+srun: error: h33m23: tasks 0-3: Exited with exit code 174
+srun: launch/slurm: _step_signal: Terminating StepId=44414980.131
