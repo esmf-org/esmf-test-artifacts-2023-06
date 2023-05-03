@@ -1,0 +1,43 @@
+2023-05-03 22:21:27
+[0] MPI startup(): I_MPI_C environment variable is not supported.
+[0] MPI startup(): Similar variables:
+	 I_MPI_CBWR
+	 I_MPI_CXXFLAGS
+	 I_MPI_CFLAGS
+	 I_MPI_CXX
+	 I_MPI_CC
+[0] MPI startup(): To check the list of supported variables, use the impi_info utility or refer to https://software.intel.com/en-us/mpi-library/documentation/get-started.
+Beginning Test, file ESMCI_MeshUTest.C, line 53
+Beginning Test, file ESMCI_MeshUTest.C, line 53NUMBER_OF_PROCESSORS 1
+PASS MeshCreate, ESMCI_MeshUTest.C, line 121
+PASS MeshAddNodes, ESMCI_MeshUTest.C, line 129
+PASS MeshAddElements, ESMCI_MeshUTest.C, line 138
+PASS MeshGetNodeCount, ESMCI_MeshUTest.C, line 148
+PASS MeshGetElementCount, ESMCI_MeshUTest.C, line 159
+PASS MeshGetOwnedNodeCount, ESMCI_MeshUTest.C, line 170
+PASS MeshGetOwnedNodeCount_OutputCorrect, ESMCI_MeshUTest.C, line 179
+PASS MeshGetOwnedElementCount, ESMCI_MeshUTest.C, line 189
+PASS MeshGetCoord, ESMCI_MeshUTest.C, line 201
+PASS MeshGetConnectivity, ESMCI_MeshUTest.C, line 225
+PASS MeshVerifyCoord, ESMCI_MeshUTest.C, line 245
+PASS MeshGetElemCoord, ESMCI_MeshUTest.C, line 257
+PASS MeshVerifyElemCoord, ESMCI_MeshUTest.C, line 282
+PASS MeshWrite, ESMCI_MeshUTest.C, line 291
+PASS MeshFreeMemory, ESMCI_MeshUTest.C, line 301
+PASS MeshDestroy, ESMCI_MeshUTest.C, line 310
+[h35m46:305022:0:305022] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+==== backtrace (tid: 305022) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x000000000053316e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0-oneAPI_intelmpi_O_develop/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065a80b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0-oneAPI_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e39311 esmf_meshmod_mp_esmf_meshcreatefromfile_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0-oneAPI_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:1978
+ 4 0x0000000000e5af1c f_esmf_meshcreatefromfile_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0-oneAPI_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh_C.F90:74
+ 5 0x0000000000603fff ESMCI::Mesh::createfromfile()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0-oneAPI_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/src/ESMCI_Mesh.C:108
+ 6 0x0000000000614c46 ESMCI::MeshCap::meshcreatefromfile()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0-oneAPI_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/src/ESMCI_MeshCap.C:502
+ 7 0x00000000007772fe ESMC_MeshCreateFromFile()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0-oneAPI_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/interface/ESMC_Mesh.C:133
+ 8 0x0000000000405e67 main()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0-oneAPI_intelmpi_O_develop/esmf/src/Infrastructure/Mesh/tests/ESMCI_MeshUTest.C:319
+ 9 0x0000000000022555 __libc_start_main()  ???:0
+10 0x0000000000405239 _start()  ???:0
+=================================
+srun: error: h35m46: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=44415000.103
