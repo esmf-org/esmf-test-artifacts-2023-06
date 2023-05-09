@@ -13,7 +13,7 @@
 
 #----------------------------------------------
 ESMF_VERSION_STRING=8.5.0 beta snapshot
-ESMF_VERSION_STRING_GIT=v8.5.0b21
+ESMF_VERSION_STRING_GIT=v8.5.0b21-19-g1e56fabece
 #----------------------------------------------
 
 ESMF_VERSION_MAJOR=8
@@ -34,7 +34,7 @@ ESMF_F90LINKER=ifort
 
 ESMF_F90COMPILEOPTS=-O -fPIC -debug minimal -assume realloc_lhs -m64 -mcmodel=small -pthread -threads  -qopenmp
 ESMF_F90COMPILEPATHS=-I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/mod/modO/Linux.intel.64.mpiuni.default -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/include -I/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/include -I/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/include
-ESMF_F90COMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='v8.5.0b21' -DESMF_MPIUNI -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/Infrastructure/stubs/mpiuni -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpiuni -DESMF_DIR=/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf
+ESMF_F90COMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='v8.5.0b21-19-g1e56fabece' -DESMF_MPIUNI -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/Infrastructure/stubs/mpiuni -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpiuni -DESMF_DIR=/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf
 ESMF_F90COMPILEFREECPP=
 ESMF_F90COMPILEFREENOCPP=
 ESMF_F90COMPILEFIXCPP=
@@ -53,7 +53,7 @@ ESMF_CXXLINKER=icpc
 
 ESMF_CXXCOMPILEOPTS=-std=c++11 -O -DNDEBUG -fPIC -debug minimal -m64 -mcmodel=small -pthread  -qopenmp
 ESMF_CXXCOMPILEPATHS= -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/include  -I/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/include -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/prologue/yaml-cpp/include
-ESMF_CXXCOMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='v8.5.0b21' -DESMF_MPIUNI -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/Infrastructure/stubs/mpiuni -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpiuni -DESMF_DIR=/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf -D__SDIR__='' -DESMF_CXXSTD=11
+ESMF_CXXCOMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='v8.5.0b21-19-g1e56fabece' -DESMF_MPIUNI -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/Infrastructure/stubs/mpiuni -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpiuni -DESMF_DIR=/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf -D__SDIR__='' -DESMF_CXXSTD=11
 
 ESMF_CXXLINKOPTS=  -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -qopenmp
 ESMF_CXXLINKPATHS=-L/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/lib/libO/Linux.intel.64.mpiuni.default -L/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/lib -L/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/lib -L/usr/local/hdf5-1.8.20-intel-cluster-18.03/lib -L/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/lib -L/usr/local/intel-cluster-20.0.1/compilers_and_libraries_2020.0.166/linux/compiler/lib/intel64_lin/
@@ -68,7 +68,7 @@ ESMF_CLINKER=icc
 
 ESMF_CCOMPILEOPTS=-std=c99 -O -DNDEBUG -fPIC -debug minimal  -qopenmp
 ESMF_CCOMPILEPATHS= -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/include  
-ESMF_CCOMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='v8.5.0b21' -DESMF_MPIUNI -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/Infrastructure/stubs/mpiuni -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpiuni -DESMF_DIR=/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf -D__SDIR__='' -DESMF_CSTD=99
+ESMF_CCOMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='v8.5.0b21-19-g1e56fabece' -DESMF_MPIUNI -I/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/src/Infrastructure/stubs/mpiuni -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpiuni -DESMF_DIR=/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf -D__SDIR__='' -DESMF_CSTD=99
 
 ESMF_CLINKOPTS=   -qopenmp
 ESMF_CLINKPATHS=-L/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/lib/libO/Linux.intel.64.mpiuni.default -L/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/lib -L/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/lib -L/usr/local/hdf5-1.8.20-intel-cluster-18.03/lib -L/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/lib -L/usr/local/intel-cluster-20.0.1/compilers_and_libraries_2020.0.166/linux/compiler/lib/intel64_lin/ -L/project/esmf/theurich/ESMF-Nightly-Testing/intel_19.1.0_mpiuni_O_develop/esmf/lib/libO/Linux.intel.64.mpiuni.default -L/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/lib -L/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/lib -L/usr/local/hdf5-1.8.20-intel-cluster-18.03/lib -L/usr/local/netcdf-c-4.6.1-f-4.4.4-intel-cluster-18.0.3/lib 
