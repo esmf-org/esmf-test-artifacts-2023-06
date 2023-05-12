@@ -1,0 +1,65 @@
+2023-05-12 07:33:51
+ --------------------------------------- 
+ Start of  System Test ESMF_CompFortranAndC
+ --------------------------------------- 
+ Comp Create (Fortran) finished, name = Fortran Component
+ Comp Create (C) finished, name = C Component
+ In mySetVMInFortran routine
+ CompInFortran SetVM finished, rc=            0           0
+ In mySetServicesInFortran routine
+ CompInFortran SetServices finished, rc=            0           0
+ Gridded Component:
+  Component name = C Component
+ CompInC SetServices finished, rc=            0           0
+ Time Interval set
+ Start Time set
+ Stop Time set
+ Clock created
+ In myInitInFortran routine
+ Gridded Component:
+  Component name = Fortran Component
+ ESMF_StatePrint: (pet 0):
+  State name: igrid export state
+     status: Export State, object count: 0
+     reconcile needed: F
+In mySetServicesInC()
+ Base name    = igrid export state
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{} ESMF_StatePrint: (pet 0):
+  State name: igrid export state
+     status: Export State, object count: 1
+     reconcile needed: T
+ Base name    = igrid export state
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}     object: 1,name: array1
+            type: Array
+ CompInFortran Initialize returned, rc=           0           0
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B121B8FF630  Unknown               Unknown  Unknown
+libesmf.so         00002B12189852BE  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002B1218AAC8BB  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002B121927FF51  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002B121900AED8  f_esmf_fieldcreat     Unknown  Unknown
+libesmf.so         00002B12188D7D99  _ZN5ESMCI5Field6c     Unknown  Unknown
+libesmf.so         00002B1218B99015  ESMC_FieldCreateM     Unknown  Unknown
+ESMF_CompFortranA  0000000000417F77  Unknown               Unknown  Unknown
+libesmf.so         00002B12188D5B26  _ZN5ESMCI6FTable1     Unknown  Unknown
+libesmf.so         00002B12188D558C  ESMCI_FTableCallE     Unknown  Unknown
+libesmf.so         00002B1218B5A080  _ZN5ESMCI3VMK5ent     Unknown  Unknown
+libesmf.so         00002B1218B4D648  _ZN5ESMCI2VM5ente     Unknown  Unknown
+libesmf.so         00002B12188D6221  c_esmc_ftablecall     Unknown  Unknown
+libesmf.so         00002B1218DE0AD0  esmf_compmod_mp_e     Unknown  Unknown
+libesmf.so         00002B1219125251  esmf_gridcompmod_     Unknown  Unknown
+ESMF_CompFortranA  0000000000419A30  Unknown               Unknown  Unknown
+ESMF_CompFortranA  0000000000416A9D  Unknown               Unknown  Unknown
+libc-2.17.so       00002B121BB2E555  __libc_start_main     Unknown  Unknown
+ESMF_CompFortranA  00000000004169B6  Unknown               Unknown  Unknown
+In myInitInC()
+local ptr[0] = 1
+local ptr[1] = 2
+local ptr[0] = 0
