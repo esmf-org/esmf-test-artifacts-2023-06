@@ -1,0 +1,61 @@
+2023-05-15 07:45:11
+  Beginning Test, file ESMF_XGridUTest.F90, line 54
+  NUMBER_OF_PROCESSORS           2
+  Beginning Test, file ESMF_XGridUTest.F90, line 54
+  NUMBER_OF_PROCESSORS           2
+[h4c53:259837:0:259837] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+[h4c53:259838:0:259838] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+==== backtrace (tid: 259838) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x0000000000531d7e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065941b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e46042 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000cec1f6 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000f0598d esmf_xgridcreatemod_mp_esmf_xgridcreate_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/XGrid/src/ESMF_XGridCreate.F90:958
+ 6 0x000000000044f884 esmf_xgridutest_IP_test_side_and_elem_info_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/XGrid/tests/ESMF_XGridUTest.F90:5743
+ 7 0x0000000000414743 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/XGrid/tests/ESMF_XGridUTest.F90:64
+ 8 0x00000000004145dd main()  ???:0
+ 9 0x0000000000022555 __libc_start_main()  ???:0
+10 0x00000000004144f6 _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002AD66A7FF630  Unknown               Unknown  Unknown
+libesmf.so         00002AD6668E4D7E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002AD666A0C41B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002AD6671F9042  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002AD66709F1F6  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002AD6672B898D  esmf_xgridcreatem     Unknown  Unknown
+ESMF_XGridUTest    000000000044F884  Unknown               Unknown  Unknown
+ESMF_XGridUTest    0000000000414743  Unknown               Unknown  Unknown
+ESMF_XGridUTest    00000000004145DD  Unknown               Unknown  Unknown
+libc-2.17.so       00002AD66B68D555  __libc_start_main     Unknown  Unknown
+ESMF_XGridUTest    00000000004144F6  Unknown               Unknown  Unknown
+==== backtrace (tid: 259837) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x0000000000531d7e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065941b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e46042 esmf_meshmod_mp_esmf_meshcreatefrompointer_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3091
+ 4 0x0000000000cec1f6 esmf_gridutilmod_mp_esmf_gridtomesh_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/GridUtil/interface/ESMF_GridUtil.F90:453
+ 5 0x0000000000f0598d esmf_xgridcreatemod_mp_esmf_xgridcreate_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/XGrid/src/ESMF_XGridCreate.F90:958
+ 6 0x000000000044f884 esmf_xgridutest_IP_test_side_and_elem_info_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/XGrid/tests/ESMF_XGridUTest.F90:5743
+ 7 0x0000000000414743 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/XGrid/tests/ESMF_XGridUTest.F90:64
+ 8 0x00000000004145dd main()  ???:0
+ 9 0x0000000000022555 __libc_start_main()  ???:0
+10 0x00000000004144f6 _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B8202257630  Unknown               Unknown  Unknown
+libesmf.so         00002B81FE33CD7E  _ZN5ESMCI6LogErr1     Unknown  Unknown
+libesmf.so         00002B81FE46441B  c_esmc_meshcreate     Unknown  Unknown
+libesmf.so         00002B81FEC51042  esmf_meshmod_mp_e     Unknown  Unknown
+libesmf.so         00002B81FEAF71F6  esmf_gridutilmod_     Unknown  Unknown
+libesmf.so         00002B81FED1098D  esmf_xgridcreatem     Unknown  Unknown
+ESMF_XGridUTest    000000000044F884  Unknown               Unknown  Unknown
+ESMF_XGridUTest    0000000000414743  Unknown               Unknown  Unknown
+ESMF_XGridUTest    00000000004145DD  Unknown               Unknown  Unknown
+libc-2.17.so       00002B82030E5555  __libc_start_main     Unknown  Unknown
+ESMF_XGridUTest    00000000004144F6  Unknown               Unknown  Unknown
+srun: error: h4c53: tasks 0-1: Exited with exit code 174
+srun: launch/slurm: _step_signal: Terminating StepId=44951538.113

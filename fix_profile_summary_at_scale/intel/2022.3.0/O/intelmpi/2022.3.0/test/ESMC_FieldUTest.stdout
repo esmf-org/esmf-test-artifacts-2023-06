@@ -1,0 +1,27 @@
+2023-05-15 07:45:11
+Beginning Test, file ESMC_FieldUTest.c, line 76
+Beginning Test, file ESMC_FieldUTest.c, line 76NUMBER_OF_PROCESSORS 1
+PASS MeshCreate, ESMC_FieldUTest.c, line 88
+PASS MeshVTKHeader, ESMC_FieldUTest.c, line 97
+PASS MeshVTKBody, ESMC_FieldUTest.c, line 116
+PASS MeshAddNodes, ESMC_FieldUTest.c, line 136
+PASS MeshAddElements, ESMC_FieldUTest.c, line 146
+PASS ArraySpecSet, ESMC_FieldUTest.c, line 154
+PASS Set up gridToFieldMap, ESMC_FieldUTest.c, line 164
+PASS Set up ungriddedLBound, ESMC_FieldUTest.c, line 175
+PASS Set up ungriddedUBound, ESMC_FieldUTest.c, line 186
+[h4c53:263015:0:263015] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4f1b591)
+==== backtrace (tid: 263015) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x0000000000531d7e ESMCI::LogErr::MsgFoundError()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/LogErr/src/ESMCI_LogErr.C:586
+ 2 0x000000000065941b c_esmc_meshcreatenodedistgrid_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Mesh/interface/ESMCI_Mesh_F.C:248
+ 3 0x0000000000e461f1 esmf_meshmod_mp_esmf_meshcreatefromintptr_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Mesh/interface/ESMF_Mesh.F90:3158
+ 4 0x0000000000bd11b8 f_esmf_fieldcreatemeshas_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Field/interface/ESMF_Field_C.F90:236
+ 5 0x0000000000484139 ESMCI::Field::create()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Field/interface/ESMCI_Field.C:620
+ 6 0x000000000075b435 ESMC_FieldCreateMeshArraySpec()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Field/interface/ESMC_Field.C:116
+ 7 0x0000000000405ad6 main()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2022.3.0_intelmpi_O_fix_profile_summary_at_scale/esmf/src/Infrastructure/Field/tests/ESMC_FieldUTest.c:193
+ 8 0x0000000000022555 __libc_start_main()  ???:0
+ 9 0x00000000004052b9 _start()  ???:0
+=================================
+srun: error: h4c53: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=44951538.117
