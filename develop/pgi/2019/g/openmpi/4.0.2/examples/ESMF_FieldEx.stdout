@@ -1,0 +1,78 @@
+2023-05-16 03:15:05
+ Field Get Data Pointer example returned
+ Field Get Grid and Array example returned
+ Field creation from Grid, typekind, and rank returned
+ Field creation from Grid and Arrayspec returned
+ Field Create from a Grid and an Array returned
+ Complete a Field created by ESMF_FieldEmptyCreate returned
+ Complete a Field created by ESMF_FieldEmptyCreate returned
+ Field Create from a Grid and a Fortran data pointer returned
+ Field Get Data Pointer example returned
+ Field Get Grid and Array example returned
+ Field creation from Grid, typekind, and rank returned
+ Field creation from Grid and Arrayspec returned
+ Field Create from a Grid and an Array returned
+ Complete a Field created by ESMF_FieldEmptyCreate returned
+ Complete a Field created by ESMF_FieldEmptyCreate returned
+ Field Create from a Grid and a Fortran data pointer returned
+[Orion-03-67:67442:0:67442] Caught signal 11 (Segmentation fault: address not mapped to object at address (nil))
+[Orion-03-67:67444:0:67444] Caught signal 11 (Segmentation fault: address not mapped to object at address (nil))
+
+/work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Field/examples/ESMF_FieldEx.F90: [ MAIN_() ]
+      ...
+
+/work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Field/examples/ESMF_FieldEx.F90: [ MAIN_() ]
+      ...
+      863 !EOE
+      864 !BOC
+      865     if (localPet==1) then
+==>   866       if (abs(myFarray(1,1)-12345.6789d0)>1.d10) print *, "bad data detected"
+      867     else if (localPet==3) then
+      868       if (abs(myFarray(1,1)-6789.12345d0)>1.d10) print *, "bad data detected"
+      869     endif
+
+      865     if (localPet==1) then
+      866       if (abs(myFarray(1,1)-12345.6789d0)>1.d10) print *, "bad data detected"
+      867     else if (localPet==3) then
+==>   868       if (abs(myFarray(1,1)-6789.12345d0)>1.d10) print *, "bad data detected"
+      869     endif
+      870 !EOC
+      871 
+
+==== backtrace (tid:  67442) ====
+ 0 0x000000000040d9aa MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Field/examples/ESMF_FieldEx.F90:866
+ 1 0x0000000000406de3 main()  ???:0
+ 2 0x0000000000022495 __libc_start_main()  ???:0
+ 3 0x0000000000406ce9 _start()  ???:0
+=================================
+[Orion-03-67:67442] *** Process received signal ***
+[Orion-03-67:67442] Signal: Segmentation fault (11)
+[Orion-03-67:67442] Signal code:  (-6)
+[Orion-03-67:67442] Failing at address: 0x20e500010772
+[Orion-03-67:67442] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7f743fa815d0]
+[Orion-03-67:67442] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_FieldEx[0x40d9aa]
+[Orion-03-67:67442] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_FieldEx[0x406de3]
+[Orion-03-67:67442] [ 3] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7f7437ffc495]
+[Orion-03-67:67442] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_FieldEx[0x406ce9]
+[Orion-03-67:67442] *** End of error message ***
+==== backtrace (tid:  67444) ====
+ 0 0x000000000040daca MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Field/examples/ESMF_FieldEx.F90:868
+ 1 0x0000000000406de3 main()  ???:0
+ 2 0x0000000000022495 __libc_start_main()  ???:0
+ 3 0x0000000000406ce9 _start()  ???:0
+=================================
+[Orion-03-67:67444] *** Process received signal ***
+[Orion-03-67:67444] Signal: Segmentation fault (11)
+[Orion-03-67:67444] Signal code:  (-6)
+[Orion-03-67:67444] Failing at address: 0x20e500010774
+[Orion-03-67:67444] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7f4f4c0245d0]
+[Orion-03-67:67444] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_FieldEx[0x40daca]
+[Orion-03-67:67444] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_FieldEx[0x406de3]
+[Orion-03-67:67444] [ 3] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7f4f4459f495]
+[Orion-03-67:67444] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_FieldEx[0x406ce9]
+[Orion-03-67:67444] *** End of error message ***
+srun: error: Orion-03-67: tasks 1,3: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=10521006.313
+slurmstepd: error: *** STEP 10521006.313 ON Orion-03-67 CANCELLED AT 2023-05-16T04:49:41 ***
+srun: error: Orion-03-67: tasks 0,2: Terminated
+srun: Force Terminated StepId=10521006.313
