@@ -1,0 +1,95 @@
+2023-05-17 03:01:36
+ localPET=            0  localDE=            0 : array(            1 , 
+            1 )=    0.000000000000000     
+ localPET=            0  localDE=            0 : array(            1 , 
+            2 )=    0.000000000000000     
+ localPET=            0  localDE=            0 : array(            2 , 
+            1 )=    0.000000000000000     
+ localPET=            0  localDE=            0 : array(            2 , 
+            2 )=    0.000000000000000     
+ localPET=            0  localDE=            0 : array(            3 , 
+            1 )=    0.000000000000000     
+ localPET=            0  localDE=            0 : array(            3 , 
+            2 )=    0.000000000000000     
+ localPET=            0  localDE=            1 : array(            1 , 
+            1 )=    0.000000000000000     
+ localPET=            0  localDE=            1 : array(            2 , 
+            1 )=    0.000000000000000     
+ localPET=            0  localDE=            1 : array(            3 , 
+            1 )=    0.000000000000000     
+ localPet:             0 DE             0  [            1            3 ]
+ localPet:             0 DE             4  [            1            3 ]
+ localPET=            2  localDE=            0 : array(            1 , 
+            1 )=    0.000000000000000     
+ localPET=            2  localDE=            0 : array(            1 , 
+            2 )=    0.000000000000000     
+ localPET=            2  localDE=            0 : array(            2 , 
+            1 )=    0.000000000000000     
+ localPET=            2  localDE=            0 : array(            2 , 
+            2 )=    0.000000000000000     
+ localPET=            2  localDE=            0 : array(            3 , 
+            1 )=    0.000000000000000     
+ localPET=            2  localDE=            0 : array(            3 , 
+            2 )=    0.000000000000000     
+ localPet:             2 DE             2  [            1            3 ]
+[Orion-05-64:297759:0:297759] Caught signal 11 (Segmentation fault: address not mapped to object at address (nil))
+[Orion-05-64:297761:0:297761] Caught signal 11 (Segmentation fault: address not mapped to object at address (nil))
+
+/work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Array/examples/ESMF_ArrayEx.F90: [ MAIN_() ]
+      ...
+
+/work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Array/examples/ESMF_ArrayEx.F90: [ MAIN_() ]
+      ...
+     1753 !EOE
+     1754 !BOC
+     1755     if (localPet==0) then
+==>  1756       myFarray = 12345.6789d0
+     1757     else if (localPet==2) then
+     1758       myFarray = 6789.12345d0
+     1759     endif
+     1755     if (localPet==0) then
+     1756       myFarray = 12345.6789d0
+     1757     else if (localPet==2) then
+==>  1758       myFarray = 6789.12345d0
+     1759     endif
+     1760 !EOC
+     1761 !BOE
+
+
+==== backtrace (tid: 297759) ====
+ 0 0x0000000000411b41 MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Array/examples/ESMF_ArrayEx.F90:1756
+ 1 0x0000000000406b13 main()  ???:0
+ 2 0x0000000000022495 __libc_start_main()  ???:0
+ 3 0x0000000000406a19 _start()  ???:0
+=================================
+[Orion-05-64:297759] *** Process received signal ***
+[Orion-05-64:297759] Signal: Segmentation fault (11)
+[Orion-05-64:297759] Signal code:  (-6)
+[Orion-05-64:297759] Failing at address: 0x20e500048b1f
+[Orion-05-64:297759] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7fbce8f815d0]
+[Orion-05-64:297759] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_ArrayEx[0x411b41]
+[Orion-05-64:297759] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_ArrayEx[0x406b13]
+[Orion-05-64:297759] [ 3] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7fbce14fc495]
+[Orion-05-64:297759] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_ArrayEx[0x406a19]
+[Orion-05-64:297759] *** End of error message ***
+==== backtrace (tid: 297761) ====
+ 0 0x0000000000411c7e MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/Array/examples/ESMF_ArrayEx.F90:1758
+ 1 0x0000000000406b13 main()  ???:0
+ 2 0x0000000000022495 __libc_start_main()  ???:0
+ 3 0x0000000000406a19 _start()  ???:0
+=================================
+[Orion-05-64:297761] *** Process received signal ***
+[Orion-05-64:297761] Signal: Segmentation fault (11)
+[Orion-05-64:297761] Signal code:  (-6)
+[Orion-05-64:297761] Failing at address: 0x20e500048b21
+[Orion-05-64:297761] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7f024deed5d0]
+[Orion-05-64:297761] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_ArrayEx[0x411c7e]
+[Orion-05-64:297761] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_ArrayEx[0x406b13]
+[Orion-05-64:297761] [ 3] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7f0246468495]
+[Orion-05-64:297761] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_ArrayEx[0x406a19]
+[Orion-05-64:297761] *** End of error message ***
+srun: error: Orion-05-64: tasks 0,2: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=10532980.296
+slurmstepd: error: *** STEP 10532980.296 ON Orion-05-64 CANCELLED AT 2023-05-17T04:07:40 ***
+srun: error: Orion-05-64: tasks 1,3: Terminated
+srun: Force Terminated StepId=10532980.296
