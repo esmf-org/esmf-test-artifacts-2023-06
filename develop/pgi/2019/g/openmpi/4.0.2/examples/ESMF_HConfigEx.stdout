@@ -1,0 +1,195 @@
+2023-06-04 03:10:09
+[Orion-06-25:440052:0:440052] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x50)
+[Orion-06-25:440054:0:440054] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x50)
+[Orion-06-25:440055:0:440055] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x50)
+[Orion-06-25:440053:0:440053] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x50)
+
+/usr/include/c++/4.8.5/bits/shared_ptr_base.h: [ std::__shared_ptr<YAML::detail::node_ref, (__gnu_cxx::_Lock_policy)2>::operator->() ]
+      ...
+      912       operator->() const noexcept
+      913       {
+      914 	_GLIBCXX_DEBUG_ASSERT(_M_ptr != 0);
+==>   915 	return _M_ptr;
+      916       }
+      917 
+      918       _Tp*
+
+
+/usr/include/c++/4.8.5/bits/shared_ptr_base.h: [ std::__shared_ptr<YAML::detail::node_ref, (__gnu_cxx::_Lock_policy)2>::operator->() ]
+      ...
+      912       operator->() const noexcept
+      913       {
+      914 	_GLIBCXX_DEBUG_ASSERT(_M_ptr != 0);
+==>   915 	return _M_ptr;
+      916       }
+      917 
+      918       _Tp*
+
+
+/usr/include/c++/4.8.5/bits/shared_ptr_base.h: [ std::__shared_ptr<YAML::detail::node_ref, (__gnu_cxx::_Lock_policy)2>::operator->() ]
+      ...
+      912       operator->() const noexcept
+      913       {
+      914 	_GLIBCXX_DEBUG_ASSERT(_M_ptr != 0);
+==>   915 	return _M_ptr;
+      916       }
+      917 
+      918       _Tp*
+
+
+/usr/include/c++/4.8.5/bits/shared_ptr_base.h: [ std::__shared_ptr<YAML::detail::node_ref, (__gnu_cxx::_Lock_policy)2>::operator->() ]
+      ...
+      912       operator->() const noexcept
+      913       {
+      914 	_GLIBCXX_DEBUG_ASSERT(_M_ptr != 0);
+==>   915 	return _M_ptr;
+      916       }
+      917 
+      918       _Tp*
+
+==== backtrace (tid: 440055) ====
+ 0 0x0000000000acef1a std::__shared_ptr<YAML::detail::node_ref, (__gnu_cxx::_Lock_policy)2>::operator->()  /usr/include/c++/4.8.5/bits/shared_ptr_base.h:915
+ 1 0x0000000001138475 YAML::detail::node::is_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node.h:34
+ 2 0x0000000001136e61 YAML::detail::node_iterator_base<YAML::detail::node>::is_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:166
+ 3 0x0000000001136e09 YAML::detail::node_iterator_base<YAML::detail::node>::increment_until_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:160
+ 4 0x0000000001136c73 YAML::detail::node_iterator_base<YAML::detail::node>::operator++()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:133
+ 5 0x0000000001138f55 YAML::detail::iterator_base<YAML::detail::iterator_value>::operator++()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/iterator.h:58
+ 6 0x000000000112b631 ESMCI::HConfig::iterNext()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/src/ESMCI_HConfig.C:3064
+ 7 0x00000000011151bf c_esmc_hconfigiternext_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMCI_HConfig_F.C:1113
+ 8 0x0000000001fc37bc esmf_hconfigmod_esmf_hconfigiternext_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMF_HConfig.F90:10931
+ 9 0x0000000001fc367e esmf_hconfigmod_esmf_hconfigiterloop_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMF_HConfig.F90:10876
+10 0x000000000040b015 MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/examples/ESMF_HConfigEx.F90:434
+11 0x0000000000407f33 main()  ???:0
+12 0x0000000000022495 __libc_start_main()  ???:0
+13 0x0000000000407e39 _start()  ???:0
+=================================
+[Orion-06-25:440055] *** Process received signal ***
+[Orion-06-25:440055] Signal: Segmentation fault (11)
+[Orion-06-25:440055] Signal code:  (-6)
+[Orion-06-25:440055] Failing at address: 0x20e50006b6f7
+[Orion-06-25:440055] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7fb92983c5d0]
+==== backtrace (tid: 440053) ====
+ 0 0x0000000000acef1a std::__shared_ptr<YAML::detail::node_ref, (__gnu_cxx::_Lock_policy)2>::operator->()  /usr/include/c++/4.8.5/bits/shared_ptr_base.h:915
+ 1 0x0000000001138475 YAML::detail::node::is_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node.h:34
+ 2 0x0000000001136e61 YAML::detail::node_iterator_base<YAML::detail::node>::is_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:166
+ 3 0x0000000001136e09 YAML::detail::node_iterator_base<YAML::detail::node>::increment_until_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:160
+ 4 0x0000000001136c73 YAML::detail::node_iterator_base<YAML::detail::node>::operator++()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:133
+ 5 0x0000000001138f55 YAML::detail::iterator_base<YAML::detail::iterator_value>::operator++()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/iterator.h:58
+ 6 0x000000000112b631 ESMCI::HConfig::iterNext()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/src/ESMCI_HConfig.C:3064
+ 7 0x00000000011151bf c_esmc_hconfigiternext_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMCI_HConfig_F.C:1113
+ 8 0x0000000001fc37bc esmf_hconfigmod_esmf_hconfigiternext_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMF_HConfig.F90:10931
+ 9 0x0000000001fc367e esmf_hconfigmod_esmf_hconfigiterloop_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMF_HConfig.F90:10876
+10 0x000000000040b015 MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/examples/ESMF_HConfigEx.F90:434
+11 0x0000000000407f33 main()  ???:0
+12 0x0000000000022495 __libc_start_main()  ???:0
+13 0x0000000000407e39 _start()  ???:0
+=================================
+[Orion-06-25:440053] *** Process received signal ***
+[Orion-06-25:440053] Signal: Segmentation fault (11)
+[Orion-06-25:440053] Signal code:  (-6)
+[Orion-06-25:440053] Failing at address: 0x20e50006b6f5
+[Orion-06-25:440053] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7f1a561675d0]
+[Orion-06-25:440055] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNKSt12__shared_ptrIN4YAML6detail8node_refELN9__gnu_cxx12_Lock_policyE2EEptEv+0xa)[0x7fb92638cf1a]
+[Orion-06-25:440053] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNKSt12__shared_ptrIN4YAML6detail8node_refELN9__gnu_cxx12_Lock_policyE2EEptEv+0xa)[0x7f1a52cb7f1a]
+[Orion-06-25:440055] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNK4YAML6detail4node10is_definedEv+0x15)[0x7fb9269f6475]
+[Orion-06-25:440053] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNK4YAML6detail4node10is_definedEv+0x15)[0x7f1a53321475]
+[Orion-06-25:440055] [ 3] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNK4YAML6detail18node_iterator_baseINS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIDTclL_ZNSt16allocator_traitsISaISt4pairIPS2_S8_EEE17_S_pointer_helperISA_EENT_7pointerEPSD_ELPSA_0EEESt6vectorIS9_SA_EEE+0x21)[0x7fb9269f4e61]
+[Orion-06-25:440053] [ 3] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNK4YAML6detail18node_iterator_baseINS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIDTclL_ZNSt16allocator_traitsISaISt4pairIPS2_S8_EEE17_S_pointer_helperISA_EENT_7pointerEPSD_ELPSA_0EEESt6vectorIS9_SA_EEE+0x21)[0x7f1a5331fe61]
+[Orion-06-25:440055] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIDTclL_ZNSt16allocator_traitsISaISt4pairIPS2_S8_EEE17_S_pointer_helperISA_EENT_7pointerEPSD_ELPSA_0EEESt6vectorIS9_SA_EEE+0x39)[0x7fb9269f4e09]
+[Orion-06-25:440053] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIDTclL_ZNSt16allocator_traitsISaISt4pairIPS2_S8_EEE17_S_pointer_helperISA_EENT_7pointerEPSD_ELPSA_0EEESt6vectorIS9_SA_EEE+0x39)[0x7f1a5331fe09]
+[Orion-06-25:440055] [ 5] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail18node_iterator_baseINS0_4nodeEEppEv+0x73)[0x7fb9269f4c73]
+[Orion-06-25:440053] [ 5] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail18node_iterator_baseINS0_4nodeEEppEv+0x73)[0x7f1a5331fc73]
+[Orion-06-25:440055] [ 6] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail13iterator_baseINS0_14iterator_valueEEppEv+0x15)[0x7fb9269f6f55]
+[Orion-06-25:440053] [ 6] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail13iterator_baseINS0_14iterator_valueEEppEv+0x15)[0x7f1a53321f55]
+[Orion-06-25:440055] [ 7] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI7HConfig8iterNextEv+0x81)[0x7fb9269e9631]
+[Orion-06-25:440053] [ 7] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI7HConfig8iterNextEv+0x81)[0x7f1a53314631]
+[Orion-06-25:440055] [ 8] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(c_esmc_hconfigiternext_+0x7f)[0x7fb9269d31bf]
+[Orion-06-25:440053] [ 8] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(c_esmc_hconfigiternext_+0x7f)[0x7f1a532fe1bf]
+[Orion-06-25:440055] [ 9] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_hconfigmod_esmf_hconfigiternext_+0x9c)[0x7fb9278817bc]
+[Orion-06-25:440053] [ 9] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_hconfigmod_esmf_hconfigiternext_+0x9c)[0x7f1a541ac7bc]
+[Orion-06-25:440055] [10] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_hconfigmod_esmf_hconfigiterloop_+0x1ae)[0x7fb92788167e]
+[Orion-06-25:440055] [11] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x40b015]
+[Orion-06-25:440055] [12] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x407f33]
+[Orion-06-25:440055] [13] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7fb921d0b495]
+[Orion-06-25:440055] [14] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x407e39]
+[Orion-06-25:440055] *** End of error message ***
+[Orion-06-25:440053] [10] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_hconfigmod_esmf_hconfigiterloop_+0x1ae)[0x7f1a541ac67e]
+[Orion-06-25:440053] [11] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x40b015]
+[Orion-06-25:440053] [12] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x407f33]
+[Orion-06-25:440053] [13] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7f1a4e636495]
+[Orion-06-25:440053] [14] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x407e39]
+[Orion-06-25:440053] *** End of error message ***
+==== backtrace (tid: 440054) ====
+ 0 0x0000000000acef1a std::__shared_ptr<YAML::detail::node_ref, (__gnu_cxx::_Lock_policy)2>::operator->()  /usr/include/c++/4.8.5/bits/shared_ptr_base.h:915
+ 1 0x0000000001138475 YAML::detail::node::is_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node.h:34
+ 2 0x0000000001136e61 YAML::detail::node_iterator_base<YAML::detail::node>::is_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:166
+ 3 0x0000000001136e09 YAML::detail::node_iterator_base<YAML::detail::node>::increment_until_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:160
+ 4 0x0000000001136c73 YAML::detail::node_iterator_base<YAML::detail::node>::operator++()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:133
+ 5 0x0000000001138f55 YAML::detail::iterator_base<YAML::detail::iterator_value>::operator++()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/iterator.h:58
+ 6 0x000000000112b631 ESMCI::HConfig::iterNext()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/src/ESMCI_HConfig.C:3064
+ 7 0x00000000011151bf c_esmc_hconfigiternext_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMCI_HConfig_F.C:1113
+ 8 0x0000000001fc37bc esmf_hconfigmod_esmf_hconfigiternext_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMF_HConfig.F90:10931
+ 9 0x0000000001fc367e esmf_hconfigmod_esmf_hconfigiterloop_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMF_HConfig.F90:10876
+10 0x000000000040b015 MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/examples/ESMF_HConfigEx.F90:434
+11 0x0000000000407f33 main()  ???:0
+12 0x0000000000022495 __libc_start_main()  ???:0
+13 0x0000000000407e39 _start()  ???:0
+=================================
+[Orion-06-25:440054] *** Process received signal ***
+[Orion-06-25:440054] Signal: Segmentation fault (11)
+[Orion-06-25:440054] Signal code:  (-6)
+[Orion-06-25:440054] Failing at address: 0x20e50006b6f6
+[Orion-06-25:440054] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7f7827c7b5d0]
+[Orion-06-25:440054] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNKSt12__shared_ptrIN4YAML6detail8node_refELN9__gnu_cxx12_Lock_policyE2EEptEv+0xa)[0x7f78247cbf1a]
+[Orion-06-25:440054] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNK4YAML6detail4node10is_definedEv+0x15)[0x7f7824e35475]
+[Orion-06-25:440054] [ 3] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNK4YAML6detail18node_iterator_baseINS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIDTclL_ZNSt16allocator_traitsISaISt4pairIPS2_S8_EEE17_S_pointer_helperISA_EENT_7pointerEPSD_ELPSA_0EEESt6vectorIS9_SA_EEE+0x21)[0x7f7824e33e61]
+[Orion-06-25:440054] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIDTclL_ZNSt16allocator_traitsISaISt4pairIPS2_S8_EEE17_S_pointer_helperISA_EENT_7pointerEPSD_ELPSA_0EEESt6vectorIS9_SA_EEE+0x39)[0x7f7824e33e09]
+[Orion-06-25:440054] [ 5] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail18node_iterator_baseINS0_4nodeEEppEv+0x73)[0x7f7824e33c73]
+[Orion-06-25:440054] [ 6] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail13iterator_baseINS0_14iterator_valueEEppEv+0x15)[0x7f7824e35f55]
+[Orion-06-25:440054] [ 7] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI7HConfig8iterNextEv+0x81)[0x7f7824e28631]
+[Orion-06-25:440054] [ 8] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(c_esmc_hconfigiternext_+0x7f)[0x7f7824e121bf]
+[Orion-06-25:440054] [ 9] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_hconfigmod_esmf_hconfigiternext_+0x9c)[0x7f7825cc07bc]
+[Orion-06-25:440054] [10] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_hconfigmod_esmf_hconfigiterloop_+0x1ae)[0x7f7825cc067e]
+[Orion-06-25:440054] [11] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x40b015]
+[Orion-06-25:440054] [12] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x407f33]
+[Orion-06-25:440054] [13] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7f782014a495]
+[Orion-06-25:440054] [14] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x407e39]
+[Orion-06-25:440054] *** End of error message ***
+==== backtrace (tid: 440052) ====
+ 0 0x0000000000acef1a std::__shared_ptr<YAML::detail::node_ref, (__gnu_cxx::_Lock_policy)2>::operator->()  /usr/include/c++/4.8.5/bits/shared_ptr_base.h:915
+ 1 0x0000000001138475 YAML::detail::node::is_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node.h:34
+ 2 0x0000000001136e61 YAML::detail::node_iterator_base<YAML::detail::node>::is_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:166
+ 3 0x0000000001136e09 YAML::detail::node_iterator_base<YAML::detail::node>::increment_until_defined()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:160
+ 4 0x0000000001136c73 YAML::detail::node_iterator_base<YAML::detail::node>::operator++()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:133
+ 5 0x0000000001138f55 YAML::detail::iterator_base<YAML::detail::iterator_value>::operator++()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/prologue/yaml-cpp/include/yaml-cpp/node/detail/iterator.h:58
+ 6 0x000000000112b631 ESMCI::HConfig::iterNext()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/src/ESMCI_HConfig.C:3064
+ 7 0x00000000011151bf c_esmc_hconfigiternext_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMCI_HConfig_F.C:1113
+ 8 0x0000000001fc37bc esmf_hconfigmod_esmf_hconfigiternext_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMF_HConfig.F90:10931
+ 9 0x0000000001fc367e esmf_hconfigmod_esmf_hconfigiterloop_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/interface/ESMF_HConfig.F90:10876
+10 0x000000000040b015 MAIN_()  /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/src/Infrastructure/HConfig/examples/ESMF_HConfigEx.F90:434
+11 0x0000000000407f33 main()  ???:0
+12 0x0000000000022495 __libc_start_main()  ???:0
+13 0x0000000000407e39 _start()  ???:0
+=================================
+[Orion-06-25:440052] *** Process received signal ***
+[Orion-06-25:440052] Signal: Segmentation fault (11)
+[Orion-06-25:440052] Signal code:  (-6)
+[Orion-06-25:440052] Failing at address: 0x20e50006b6f4
+[Orion-06-25:440052] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7fe5e3b515d0]
+[Orion-06-25:440052] [ 1] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNKSt12__shared_ptrIN4YAML6detail8node_refELN9__gnu_cxx12_Lock_policyE2EEptEv+0xa)[0x7fe5e06a1f1a]
+[Orion-06-25:440052] [ 2] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNK4YAML6detail4node10is_definedEv+0x15)[0x7fe5e0d0b475]
+[Orion-06-25:440052] [ 3] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZNK4YAML6detail18node_iterator_baseINS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIDTclL_ZNSt16allocator_traitsISaISt4pairIPS2_S8_EEE17_S_pointer_helperISA_EENT_7pointerEPSD_ELPSA_0EEESt6vectorIS9_SA_EEE+0x21)[0x7fe5e0d09e61]
+[Orion-06-25:440052] [ 4] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIDTclL_ZNSt16allocator_traitsISaISt4pairIPS2_S8_EEE17_S_pointer_helperISA_EENT_7pointerEPSD_ELPSA_0EEESt6vectorIS9_SA_EEE+0x39)[0x7fe5e0d09e09]
+[Orion-06-25:440052] [ 5] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail18node_iterator_baseINS0_4nodeEEppEv+0x73)[0x7fe5e0d09c73]
+[Orion-06-25:440052] [ 6] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN4YAML6detail13iterator_baseINS0_14iterator_valueEEppEv+0x15)[0x7fe5e0d0bf55]
+[Orion-06-25:440052] [ 7] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(_ZN5ESMCI7HConfig8iterNextEv+0x81)[0x7fe5e0cfe631]
+[Orion-06-25:440052] [ 8] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(c_esmc_hconfigiternext_+0x7f)[0x7fe5e0ce81bf]
+[Orion-06-25:440052] [ 9] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_hconfigmod_esmf_hconfigiternext_+0x9c)[0x7fe5e1b967bc]
+[Orion-06-25:440052] [10] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/lib/libg/Linux.pgi.64.openmpi.default/libesmf.so(esmf_hconfigmod_esmf_hconfigiterloop_+0x1ae)[0x7fe5e1b9667e]
+[Orion-06-25:440052] [11] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x40b015]
+[Orion-06-25:440052] [12] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x407f33]
+[Orion-06-25:440052] [13] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7fe5dc020495]
+[Orion-06-25:440052] [14] /work/noaa/da/mpotts/sandbox/pgi_2019_openmpi_g_develop/esmf/examples/examplesg/Linux.pgi.64.openmpi.default/./ESMF_HConfigEx[0x407e39]
+[Orion-06-25:440052] *** End of error message ***
+srun: error: Orion-06-25: tasks 0-3: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=10694566.276
