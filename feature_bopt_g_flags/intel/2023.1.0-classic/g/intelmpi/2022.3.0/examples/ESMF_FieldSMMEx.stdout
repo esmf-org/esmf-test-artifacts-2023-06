@@ -1,0 +1,146 @@
+2023-06-11 07:41:31
+[h23c33:31791:0:31791] Caught signal 8 (Floating point exception: floating-point invalid operation)
+[h23c33:31793:0:31793] Caught signal 8 (Floating point exception: floating-point invalid operation)
+[h23c33:31794:0:31794] Caught signal 8 (Floating point exception: floating-point invalid operation)
+[h23c33:31792:0:31792] Caught signal 8 (Floating point exception: floating-point invalid operation)
+==== backtrace (tid:  31794) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x00000000013cd365 ESMCI::XXE::exec_psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7430
+ 2 0x000000000139375d ESMCI::XXE::psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7402
+ 3 0x00000000013933dd ESMCI::XXE::psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7338
+ 4 0x00000000012310e2 ESMCI::XXE::psssSrcRra<int, int, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7312
+ 5 0x0000000001230b48 ESMCI::XXE::psssSrcRra<int, int, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7250
+ 6 0x00000000011cc9fc ESMCI::XXE::exec()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:5014
+ 7 0x0000000000fbdd7e ESMCI::Array::sparseMatMul()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/src/ESMCI_Array.C:12320
+ 8 0x000000000110b19d c_esmc_arraysmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/interface/ESMCI_Array_F.C:1254
+ 9 0x0000000001b6261b esmf_arraymod_mp_esmf_arraysmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/interface/ESMF_Array.F90:936
+10 0x000000000271cdd9 esmf_fieldsmmmod_mp_esmf_fieldsmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Field/src/ESMF_FieldSMM.F90:220
+11 0x000000000041c7a2 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Field/examples/ESMF_FieldSMMEx.F90:229
+12 0x0000000000418e1d main()  ???:0
+13 0x0000000000022555 __libc_start_main()  ???:0
+14 0x0000000000418d4b _start()  ???:0
+=================================
+forrtl: error (75): floating point exception
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B3C6B66A630  Unknown               Unknown  Unknown
+libesmf.so         00002B3C63D19365  _ZN5ESMCI3XXE15ex        7430  ESMCI_DELayout.C
+libesmf.so         00002B3C63CDF75D  _ZN5ESMCI3XXE10ps        7402  ESMCI_DELayout.C
+libesmf.so         00002B3C63CDF3DD  _ZN5ESMCI3XXE10ps        7338  ESMCI_DELayout.C
+libesmf.so         00002B3C63B7D0E2  _ZN5ESMCI3XXE10ps        7312  ESMCI_DELayout.C
+libesmf.so         00002B3C63B7CB48  _ZN5ESMCI3XXE10ps        7250  ESMCI_DELayout.C
+libesmf.so         00002B3C63B189FC  _ZN5ESMCI3XXE4exe        5014  ESMCI_DELayout.C
+libesmf.so         00002B3C63909D7E  _ZN5ESMCI5Array12       12320  ESMCI_Array.C
+libesmf.so         00002B3C63A5719D  c_esmc_arraysmm_         1254  ESMCI_Array_F.C
+libesmf.so         00002B3C644AE61B  esmf_arraymod_mp_         936  ESMF_Array.F90
+libesmf.so         00002B3C65068DD9  esmf_fieldsmmmod_         220  ESMF_FieldSMM.F90
+ESMF_FieldSMMEx    000000000041C7A2  MAIN__                    229  ESMF_FieldSMMEx.F90
+ESMF_FieldSMMEx    0000000000418E1D  Unknown               Unknown  Unknown
+libc-2.17.so       00002B3C6C5D3555  __libc_start_main     Unknown  Unknown
+ESMF_FieldSMMEx    0000000000418D4B  Unknown               Unknown  Unknown
+==== backtrace (tid:  31792) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x00000000013cd365 ESMCI::XXE::exec_psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7430
+ 2 0x000000000139375d ESMCI::XXE::psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7402
+ 3 0x00000000013933dd ESMCI::XXE::psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7338
+ 4 0x00000000012310e2 ESMCI::XXE::psssSrcRra<int, int, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7312
+ 5 0x0000000001230b48 ESMCI::XXE::psssSrcRra<int, int, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7250
+ 6 0x00000000011cc9fc ESMCI::XXE::exec()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:5014
+ 7 0x0000000000fbdd7e ESMCI::Array::sparseMatMul()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/src/ESMCI_Array.C:12320
+ 8 0x000000000110b19d c_esmc_arraysmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/interface/ESMCI_Array_F.C:1254
+ 9 0x0000000001b6261b esmf_arraymod_mp_esmf_arraysmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/interface/ESMF_Array.F90:936
+10 0x000000000271cdd9 esmf_fieldsmmmod_mp_esmf_fieldsmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Field/src/ESMF_FieldSMM.F90:220
+11 0x000000000041c7a2 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Field/examples/ESMF_FieldSMMEx.F90:229
+12 0x0000000000418e1d main()  ???:0
+13 0x0000000000022555 __libc_start_main()  ???:0
+14 0x0000000000418d4b _start()  ???:0
+=================================
+forrtl: error (75): floating point exception
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002AB2CA43E630  Unknown               Unknown  Unknown
+libesmf.so         00002AB2C2AED365  _ZN5ESMCI3XXE15ex        7430  ESMCI_DELayout.C
+libesmf.so         00002AB2C2AB375D  _ZN5ESMCI3XXE10ps        7402  ESMCI_DELayout.C
+libesmf.so         00002AB2C2AB33DD  _ZN5ESMCI3XXE10ps        7338  ESMCI_DELayout.C
+libesmf.so         00002AB2C29510E2  _ZN5ESMCI3XXE10ps        7312  ESMCI_DELayout.C
+libesmf.so         00002AB2C2950B48  _ZN5ESMCI3XXE10ps        7250  ESMCI_DELayout.C
+libesmf.so         00002AB2C28EC9FC  _ZN5ESMCI3XXE4exe        5014  ESMCI_DELayout.C
+libesmf.so         00002AB2C26DDD7E  _ZN5ESMCI5Array12       12320  ESMCI_Array.C
+libesmf.so         00002AB2C282B19D  c_esmc_arraysmm_         1254  ESMCI_Array_F.C
+libesmf.so         00002AB2C328261B  esmf_arraymod_mp_         936  ESMF_Array.F90
+libesmf.so         00002AB2C3E3CDD9  esmf_fieldsmmmod_         220  ESMF_FieldSMM.F90
+ESMF_FieldSMMEx    000000000041C7A2  MAIN__                    229  ESMF_FieldSMMEx.F90
+ESMF_FieldSMMEx    0000000000418E1D  Unknown               Unknown  Unknown
+libc-2.17.so       00002AB2CB3A7555  __libc_start_main     Unknown  Unknown
+ESMF_FieldSMMEx    0000000000418D4B  Unknown               Unknown  Unknown
+==== backtrace (tid:  31793) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x00000000013cd365 ESMCI::XXE::exec_psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7430
+ 2 0x000000000139375d ESMCI::XXE::psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7402
+ 3 0x00000000013933dd ESMCI::XXE::psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7338
+ 4 0x00000000012310e2 ESMCI::XXE::psssSrcRra<int, int, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7312
+ 5 0x0000000001230b48 ESMCI::XXE::psssSrcRra<int, int, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7250
+ 6 0x00000000011cc9fc ESMCI::XXE::exec()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:5014
+ 7 0x0000000000fbdd7e ESMCI::Array::sparseMatMul()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/src/ESMCI_Array.C:12320
+ 8 0x000000000110b19d c_esmc_arraysmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/interface/ESMCI_Array_F.C:1254
+ 9 0x0000000001b6261b esmf_arraymod_mp_esmf_arraysmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/interface/ESMF_Array.F90:936
+10 0x000000000271cdd9 esmf_fieldsmmmod_mp_esmf_fieldsmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Field/src/ESMF_FieldSMM.F90:220
+11 0x000000000041c7a2 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Field/examples/ESMF_FieldSMMEx.F90:229
+12 0x0000000000418e1d main()  ???:0
+13 0x0000000000022555 __libc_start_main()  ???:0
+14 0x0000000000418d4b _start()  ???:0
+=================================
+==== backtrace (tid:  31791) ====
+ 0 0x000000000004d455 ucs_debug_print_backtrace()  ???:0
+ 1 0x00000000013cd365 ESMCI::XXE::exec_psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7430
+ 2 0x000000000139375d ESMCI::XXE::psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7402
+ 3 0x00000000013933dd ESMCI::XXE::psssSrcRra<int, float, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7338
+ 4 0x00000000012310e2 ESMCI::XXE::psssSrcRra<int, int, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7312
+ 5 0x0000000001230b48 ESMCI::XXE::psssSrcRra<int, int, int>()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:7250
+ 6 0x00000000011cc9fc ESMCI::XXE::exec()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/DELayout/src/ESMCI_DELayout.C:5014
+ 7 0x0000000000fbdd7e ESMCI::Array::sparseMatMul()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/src/ESMCI_Array.C:12320
+ 8 0x000000000110b19d c_esmc_arraysmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/interface/ESMCI_Array_F.C:1254
+ 9 0x0000000001b6261b esmf_arraymod_mp_esmf_arraysmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Array/interface/ESMF_Array.F90:936
+10 0x000000000271cdd9 esmf_fieldsmmmod_mp_esmf_fieldsmm_()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Field/src/ESMF_FieldSMM.F90:220
+11 0x000000000041c7a2 MAIN__()  /scratch2/NCEPDEV/stmp1/Gerhard.Theurich/ESMF-Nightly-Testing/intel_2023.1.0-classic_intelmpi_g_feature_bopt_g_flags/esmf/src/Infrastructure/Field/examples/ESMF_FieldSMMEx.F90:229
+12 0x0000000000418e1d main()  ???:0
+13 0x0000000000022555 __libc_start_main()  ???:0
+14 0x0000000000418d4b _start()  ???:0
+=================================
+forrtl: error (75): floating point exception
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B49BC932630  Unknown               Unknown  Unknown
+libesmf.so         00002B49B4FE1365  _ZN5ESMCI3XXE15ex        7430  ESMCI_DELayout.C
+libesmf.so         00002B49B4FA775D  _ZN5ESMCI3XXE10ps        7402  ESMCI_DELayout.C
+libesmf.so         00002B49B4FA73DD  _ZN5ESMCI3XXE10ps        7338  ESMCI_DELayout.C
+libesmf.so         00002B49B4E450E2  _ZN5ESMCI3XXE10ps        7312  ESMCI_DELayout.C
+libesmf.so         00002B49B4E44B48  _ZN5ESMCI3XXE10ps        7250  ESMCI_DELayout.C
+libesmf.so         00002B49B4DE09FC  _ZN5ESMCI3XXE4exe        5014  ESMCI_DELayout.C
+libesmf.so         00002B49B4BD1D7E  _ZN5ESMCI5Array12       12320  ESMCI_Array.C
+libesmf.so         00002B49B4D1F19D  c_esmc_arraysmm_         1254  ESMCI_Array_F.C
+libesmf.so         00002B49B577661B  esmf_arraymod_mp_         936  ESMF_Array.F90
+libesmf.so         00002B49B6330DD9  esmf_fieldsmmmod_         220  ESMF_FieldSMM.F90
+ESMF_FieldSMMEx    000000000041C7A2  MAIN__                    229  ESMF_FieldSMMEx.F90
+ESMF_FieldSMMEx    0000000000418E1D  Unknown               Unknown  Unknown
+libc-2.17.so       00002B49BD89B555  __libc_start_main     Unknown  Unknown
+ESMF_FieldSMMEx    0000000000418D4B  Unknown               Unknown  Unknown
+forrtl: error (75): floating point exception
+Image              PC                Routine            Line        Source             
+libpthread-2.17.s  00002B0A336D4630  Unknown               Unknown  Unknown
+libesmf.so         00002B0A2BD83365  _ZN5ESMCI3XXE15ex        7430  ESMCI_DELayout.C
+libesmf.so         00002B0A2BD4975D  _ZN5ESMCI3XXE10ps        7402  ESMCI_DELayout.C
+libesmf.so         00002B0A2BD493DD  _ZN5ESMCI3XXE10ps        7338  ESMCI_DELayout.C
+libesmf.so         00002B0A2BBE70E2  _ZN5ESMCI3XXE10ps        7312  ESMCI_DELayout.C
+libesmf.so         00002B0A2BBE6B48  _ZN5ESMCI3XXE10ps        7250  ESMCI_DELayout.C
+libesmf.so         00002B0A2BB829FC  _ZN5ESMCI3XXE4exe        5014  ESMCI_DELayout.C
+libesmf.so         00002B0A2B973D7E  _ZN5ESMCI5Array12       12320  ESMCI_Array.C
+libesmf.so         00002B0A2BAC119D  c_esmc_arraysmm_         1254  ESMCI_Array_F.C
+libesmf.so         00002B0A2C51861B  esmf_arraymod_mp_         936  ESMF_Array.F90
+libesmf.so         00002B0A2D0D2DD9  esmf_fieldsmmmod_         220  ESMF_FieldSMM.F90
+ESMF_FieldSMMEx    000000000041C7A2  MAIN__                    229  ESMF_FieldSMMEx.F90
+ESMF_FieldSMMEx    0000000000418E1D  Unknown               Unknown  Unknown
+libc-2.17.so       00002B0A3463D555  __libc_start_main     Unknown  Unknown
+ESMF_FieldSMMEx    0000000000418D4B  Unknown               Unknown  Unknown
+srun: error: h23c33: task 3: Aborted (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=45901699.321
+slurmstepd: error: *** STEP 45901699.321 ON h23c33 CANCELLED AT 2023-06-11T08:13:55 ***
+srun: error: h23c33: tasks 0,2: Aborted (core dumped)
+srun: error: h23c33: task 1: Aborted (core dumped)
